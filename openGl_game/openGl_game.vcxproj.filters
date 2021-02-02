@@ -30,8 +30,11 @@
     <ClCompile Include="open_gl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Globale_Variables.h">
-      <Filter>Header Files</Filter>
+    <ClCompile Include="Draw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Step.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -47,7 +50,16 @@
     <ClInclude Include="open_gl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Globale_Constants.h">
+    <ClInclude Include="Draw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Global_Constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Global_Variables.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Step.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -4,8 +4,7 @@
 #include<vector>
 
 // User includes
-#include "Globale_Variables.h"
-#include "Globale_Constants.h"
+#include "Global_Constants.h"
 
 //extern  tagRECT get_rect;
 

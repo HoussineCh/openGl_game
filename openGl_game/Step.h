@@ -9,10 +9,8 @@
 // User includes
 #include "Global_Variables.h"
 #include "Global_Constants.h"
+#include "Update.h"
+#include "Draw.h"
 
-
-// Declarations
-void Init();
-
-
-void initGrid(int, int);
+//
+void Step();

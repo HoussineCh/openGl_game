@@ -1,21 +1,17 @@
 #pragma once
 
-// Sys includes
+// System files includes
 #include<iostream>
-#include<vector>
 #include<GL/glut.h> 
 #include<GL/gl.h> 
 
-// User includes
-#include "Globale_Variables.h"
-#include "Globale_Constants.h"
+// User defined files includes
+#include "Global_Variables.h"
 
-//
+
+// Signature of the function Update()
 void Update();
 
-void unit(float, float);
-void drawgrid();
-void draw_snake();
-void check_collision();
-void draw_fewd();
-void draw_txt();
+// Sub-functions signatures
+void ud_snake();
+void check_event();

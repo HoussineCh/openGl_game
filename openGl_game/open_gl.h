@@ -7,9 +7,9 @@
 #include<GL/gl.h> 
 
 // User includes
-#include "Globale_Variables.h"
-#include "Globale_Constants.h"
-#include "Update.h"
+#include "Global_Variables.h"
+#include "Global_Constants.h"
+#include "Step.h"
 
 // Macros
 #define FPS_LIM 5

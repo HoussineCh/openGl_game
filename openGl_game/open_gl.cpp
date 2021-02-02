@@ -3,7 +3,7 @@
     Author:	H.CHERGUI
     First version: 1.0
     First version date: 02/02/2021
-    current version: 1.0
+    current version: 2.0
     current version date: 02/02/2021
 */
 
@@ -34,7 +34,9 @@ void open_GL(int argc, char** argv) {
 
 void displayCallBack() {
     glClear(GL_COLOR_BUFFER_BIT);
-    Update();
+    Step();
+
+    drawgrid();
     glutSwapBuffers();
 }
 
