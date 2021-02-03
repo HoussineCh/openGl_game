@@ -3,8 +3,8 @@
     Author:	H.CHERGUI
     First version: 1.0
     First version date: 02/02/2021
-    current version: 1.0
-    current version date: 02/02/2021
+    current version: 2.0
+    current version date: 03/02/2021
 */
 
 // Sys includes
@@ -12,7 +12,7 @@
 
 // User includes
 #include "Input.h"
-#include <iostream> ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 // Definitions 
 void Special_callback(int key, int, int) {

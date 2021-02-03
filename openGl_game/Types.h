@@ -12,7 +12,7 @@ enum class e_Cmd {
 	START = 10,
 	RUN = 'g',
 	PAUSE = 'p',
-	PAUSE2 = 27,
+	ESC = 27,
 	RESTART = 'r',
 	WALL_HIT = 11,
 	COLLISION = 12,
