@@ -16,39 +16,51 @@
 
 /*Global Variables*/
 
-tagRECT get_rect = { 0, 42, 64, 40 };
-
 int gridX, gridY;
 
 int score;
 int hi_score;
 
-short sDirection = UP;
-int xx = COL / 2, yy = ROW / 2;
+e_DIrection g_Direction;
+int xx , yy;
 int tail_len;
 std::vector<std::pair<int, int>> tail;
 short supeedo_wagon_val;
 
 int fx, fy;
 
+int g_key;
+int g_special_key;
+
+s_Game_info g_Game_info;
+
 // Definitions
 void Init() {
+    
     score = 0;
     hi_score = 100;
+
+    g_Direction = e_DIrection::UP;
+    xx = GC_COL / 2, yy = GC_ROW / 2;
+
+    g_key = 0;
+    g_special_key = 0;
+
     glClearColor(0.1, 0.1, 0.15, 1.0);
-    initGrid(COL, ROW);
+    initGrid(GC_COL, GC_ROW);
     tail.resize(100);
     tail_len = 4;
     for (int i = 0; i < tail_len; i++) {
-        tail[i] = std::make_pair(COL / 2, ROW / 2 - i - 1);
+        tail[i] = std::make_pair(GC_COL / 2, GC_ROW / 2 - i - 1);
     }
-    srand(time(NULL));
-    fx = rand() % (COL - 2) + 1;
-    fy = rand() % (ROW - 4) + 1;
+    srand(unsigned int(time(NULL)));
+    fx = rand() % (GC_COL - 2) + 1;
+    fy = rand() % (GC_ROW - 4) + 1;
 
     supeedo_wagon_val = 1;
-}
 
+    g_Game_info = { e_State::START_SCREEN, e_Cmd::NO_CMD };
+}
 
 void initGrid(int x, int y) {
     gridX = x;

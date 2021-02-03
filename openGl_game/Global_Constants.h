@@ -1,9 +1,8 @@
 #pragma once
 
-const int ROW = 42;
-const int COL = 64;
+const int GC_ROW = 42;
+const int GC_COL = 64;
 
-const int UP = 1;
-const int DOWN = -1;
-const int RIGHT = 2;
-const int LEFT = -2;
+const int GC_H = 800;
+const int GC_W = 1280;
+

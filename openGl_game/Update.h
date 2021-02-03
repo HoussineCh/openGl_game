@@ -7,11 +7,12 @@
 
 // User defined files includes
 #include "Global_Variables.h"
+#include "State_Engine.h"
 
 
 // Signature of the function Update()
-void Update();
+s_Game_info Update(s_Game_info, unsigned short);
 
 // Sub-functions signatures
 void ud_snake();
-void check_event();
+e_Cmd check_event();

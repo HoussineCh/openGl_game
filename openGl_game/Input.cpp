@@ -12,45 +12,51 @@
 
 // User includes
 #include "Input.h"
+#include <iostream> ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Definitions 
-void keyboard_callback(int key, int, int) {
+void Special_callback(int key, int, int) {
     static int prevx = -1;
     static int prevy = -1;
+    
     if (key == GLUT_KEY_UP) {
-        if (sDirection != DOWN && (prevx != xx || prevy != yy)) {
-            sDirection = UP;
+        if (g_Direction != e_DIrection::DOWN && (prevx != xx || prevy != yy)) {
+            g_Direction = e_DIrection::UP;
             prevx = xx; prevy = yy;
         }
-        else if (sDirection == UP) {
+        else if (g_Direction == e_DIrection::UP) {
             supeedo_wagon_val = 3;
         }
     }
     else if (key == GLUT_KEY_DOWN) {
-        if (sDirection != UP && (prevx != xx || prevy != yy)) {
-            sDirection = DOWN;
+        if (g_Direction != e_DIrection::UP && (prevx != xx || prevy != yy)) {
+            g_Direction = e_DIrection::DOWN;
             prevx = xx; prevy = yy;
         }
-        else if (sDirection == DOWN) {
+        else if (g_Direction == e_DIrection::DOWN) {
             supeedo_wagon_val = 3;
         }
     }
     else if (key == GLUT_KEY_RIGHT) {
-        if (sDirection != LEFT && (prevx != xx || prevy != yy)) {
-            sDirection = RIGHT;
+        if (g_Direction != e_DIrection::LEFT && (prevx != xx || prevy != yy)) {
+            g_Direction = e_DIrection::RIGHT;
             prevx = xx; prevy = yy;
         }
-        else if (sDirection == RIGHT) {
+        else if (g_Direction == e_DIrection::RIGHT) {
             supeedo_wagon_val = 3;
         }
     }
     else if (key == GLUT_KEY_LEFT) {
-        if (sDirection != RIGHT && (prevx != xx || prevy != yy)) {
-            sDirection = LEFT;
+        if (g_Direction != e_DIrection::RIGHT && (prevx != xx || prevy != yy)) {
+            g_Direction = e_DIrection::LEFT;
             prevx = xx; prevy = yy;
         }
-        else if (sDirection == LEFT) {
+        else if (g_Direction == e_DIrection::LEFT) {
             supeedo_wagon_val = 3;
         }
     }
+}
+
+void keyboard_callback(unsigned char key, int, int) {
+    g_key = key;
 }

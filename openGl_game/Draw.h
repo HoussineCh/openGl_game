@@ -10,7 +10,7 @@
 
 
 // Signature of the function Draw()
-void Draw();
+void Draw(s_Game_info);
 
 void unit(float, float);
 void drawgrid();

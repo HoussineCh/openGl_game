@@ -23,10 +23,28 @@
 
 
 // Drawing the content on the screen
-void Draw() {
+void Draw(s_Game_info p_Game_info) {
 	drawgrid();
-	draw_snake();
-	draw_fewd();
+	if (p_Game_info.state == e_State::RUNNING || p_Game_info.state == e_State::PAUSE) {
+		draw_snake();
+		draw_fewd();
+	}
+	else if (p_Game_info.state == e_State::GAME_OVER) {
+		char s[15];
+		_itoa_s(score, s, 10);
+		char t[250] = "teh score is: ";
+		strcat_s(t, s);
+		if (p_Game_info.code == e_Cmd::COLLISION) {
+			strcat_s(t, "\nYou just hit yourself!!! Dont do that again!!");
+			strcat_s(t, "\n\n\nSnaeke!...                           SNAAAEKE!\n\n                    (continue y/n?)");
+		}
+		else if (p_Game_info.code == e_Cmd::WALL_HIT) {
+			strcat_s(t, "\nDon't run away! stay inside the map!!");
+			strcat_s(t, "\n\n\nSnaeke!...                           SNAAAEKE!\n\n                    (continue y/n?)");
+		}
+		MessageBox(NULL, LPCSTR(t), LPCSTR("Game Over!"), 0);
+		//exit(0);
+	}
 }
 
 void drawgrid() {

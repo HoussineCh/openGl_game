@@ -21,9 +21,25 @@
 
 
 // Definition of the update function
-void Update() {
-	ud_snake();
-	check_event();
+s_Game_info Update(s_Game_info p_status, unsigned short p_in_cmd) {
+
+	// Local variables
+	s_Game_info l_status;
+
+	// Determining the current state
+	l_status.state = State_Engine(p_status, p_in_cmd);
+
+	if (l_status.state == e_State::RUNNING) {
+
+		// Updating the snake
+		ud_snake();
+
+		// Check if snaek ate the fruit, and if a game over occured
+		l_status.code = check_event();
+	}
+
+	// Return game status
+	return l_status;
 }
 
 void ud_snake() {
@@ -36,42 +52,43 @@ void ud_snake() {
 	}
 	tail[0] = std::make_pair(xx, yy);
 
-	if (sDirection == UP)
+	if (g_Direction == e_DIrection::UP)
 		yy++;
-	else if (sDirection == DOWN)
+	else if (g_Direction == e_DIrection::DOWN)
 		yy--;
-	else if (sDirection == RIGHT)
+	else if (g_Direction == e_DIrection::RIGHT)
 		xx++;
-	else if (sDirection == LEFT)
+	else if (g_Direction == e_DIrection::LEFT)
 		xx--;
 }
 
 
-void check_event() {
-	bool state = 0;
+e_Cmd check_event() {
+
+	// Local variable
+	e_Cmd l_cmd = e_Cmd::RUN;
+
+
 	for (int i = 0; i < tail_len; i++) {
 		if (xx == tail[i].first && yy == tail[i].second) {
-			state = 1;
+			l_cmd = e_Cmd::COLLISION;
 			break;
 		}
 	}
-	if (xx == 0 || xx == COL - 1 || yy == 0 || yy == ROW - 3) {
-		state = 1;
+
+	if (xx == 0 || xx == GC_COL - 1 || yy == 0 || yy == GC_ROW - 3) {
+		l_cmd = e_Cmd::WALL_HIT;
 	}
-	if (state) {
-		char s[15];
-		_itoa_s(score, s, 10);
-		char t[250] = "teh score is: ";
-		strcat_s(t, s);
-		strcat_s(t, "\nSnaeke!...                           SNAAAEKE!\n\n                    (continue y/n?)");
-		MessageBox(NULL, LPCSTR(t), LPCSTR("Game Over!"), 0);
-		exit(0);
-	}
+		
+
 	if (fx == xx && fy == yy) {
 		score += 10;
 		tail_len++;
-		srand(time(NULL));
-		fx = rand() % (COL - 2) + 1;
-		fy = rand() % (ROW - 4) + 1;
+		srand(unsigned int(time(NULL)));
+		fx = rand() % (GC_COL - 2) + 1;
+		fy = rand() % (GC_ROW - 4) + 1;
 	}
+
+	// Return status command
+	return l_cmd;
 }

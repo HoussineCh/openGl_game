@@ -13,6 +13,7 @@
 // User includes
 #include "open_gl.h"
 #include "Init.h"
+#include "Input.h"
 
 
 // Definitions
@@ -21,11 +22,12 @@ void open_GL(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
     glutInitWindowPosition(0, 0);
-    glutInitWindowSize(1280, 800);
+    glutInitWindowSize(GC_W, GC_H);
     glutCreateWindow("snake gaem");
     glutDisplayFunc(displayCallBack);
     glutReshapeFunc(reshap_callback);
-    glutSpecialFunc(keyboard_callback);
+    glutSpecialFunc(Special_callback);
+    glutKeyboardFunc(keyboard_callback);
     glutTimerFunc(0, timer_callback, 0);
     Init();
     glutMainLoop();
@@ -35,8 +37,6 @@ void open_GL(int argc, char** argv) {
 void displayCallBack() {
     glClear(GL_COLOR_BUFFER_BIT);
     Step();
-
-    drawgrid();
     glutSwapBuffers();
 }
 
@@ -44,7 +44,7 @@ void reshap_callback(int w, int h) {
     glViewport(0, 0, (GLsizei)w, (GLsizei)h);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(0.0, COL, 0.0, ROW, -1.0, 1.0);
+    glOrtho(0.0, GC_COL, 0.0, GC_ROW, -1.0, 1.0);
     glMatrixMode(GL_MODELVIEW);
 }
 
