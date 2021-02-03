@@ -3,7 +3,7 @@
 	Author:	H.CHERGUI
 	First version: 2.0
 	First version date: 03/02/2021
-	current version: 2.0
+	current version: 2.5
 	current version date: 03/02/2021
 */
 
@@ -24,7 +24,6 @@
 
 // Drawing the content on the screen
 void Draw(s_Game_info p_Game_info) {
-	drawgrid();
 	if (p_Game_info.state == e_State::RUNNING) {
 		draw_snake();
 		draw_fewd();
@@ -32,7 +31,7 @@ void Draw(s_Game_info p_Game_info) {
 	else if( p_Game_info.state == e_State::PAUSE) {
 		draw_snake();
 		draw_fewd();
-		// draw a pause msg
+		draw_pause();
 	}
 	else if (p_Game_info.state == e_State::GAME_OVER) {
 		char s[15];
@@ -49,6 +48,7 @@ void Draw(s_Game_info p_Game_info) {
 		}
 		MessageBox(NULL, LPCSTR(t), LPCSTR("Game Over!"), 0);
 	}
+	drawgrid();
 }
 
 void drawgrid() {
@@ -104,7 +104,7 @@ void draw_snake() {
 }
 
 void draw_fewd() {
-	glColor3f(0.35, 0.35, 0.35);
+	glColor3f(0.55, 0.55, 0.65);
 	glRectd(fx + 0.1, fy + 0.1, fx + 0.9, fy + 0.9);
 
 	glColor3f(0.1, 0.1, 0.1);
@@ -116,3 +116,36 @@ void draw_fewd() {
 	glEnd();
 }
 
+void draw_pause() {
+	glColor3f(0.35, 0.2, 0.65);
+	
+	/* P */
+	glRectd(GC_OS_X, GC_OS_Y, GC_OS_X+1, GC_OS_Y+5);
+	glRectd(GC_OS_X+1, GC_OS_Y+2, GC_OS_X+2, GC_OS_Y+3);
+	glRectd(GC_OS_X+1, GC_OS_Y+4, GC_OS_X+2, GC_OS_Y+5);
+	glRectd(GC_OS_X+2, GC_OS_Y+3, GC_OS_X+3, GC_OS_Y+4);
+
+	/* A */
+	glRectd(GC_OS_X+4, GC_OS_Y, GC_OS_X + 5, GC_OS_Y + 4);
+	glRectd(GC_OS_X+5, GC_OS_Y+2, GC_OS_X + 6, GC_OS_Y + 3);
+	glRectd(GC_OS_X+5, GC_OS_Y+4, GC_OS_X + 6, GC_OS_Y + 5);
+	glRectd(GC_OS_X+6, GC_OS_Y, GC_OS_X + 7, GC_OS_Y + 4);
+
+	/* U */
+	glRectd(GC_OS_X + 8, GC_OS_Y+0, GC_OS_X + 9, GC_OS_Y + 5);
+	glRectd(GC_OS_X + 9, GC_OS_Y , GC_OS_X + 10, GC_OS_Y + 1);
+	glRectd(GC_OS_X + 10, GC_OS_Y+0, GC_OS_X + 11, GC_OS_Y + 5);
+
+	/* S */
+	glRectd(GC_OS_X+12, GC_OS_Y, GC_OS_X + 14, GC_OS_Y + 1);
+	glRectd(GC_OS_X+14, GC_OS_Y+1, GC_OS_X + 15, GC_OS_Y + 2);
+	glRectd(GC_OS_X+13, GC_OS_Y+2, GC_OS_X + 14, GC_OS_Y + 3);
+	glRectd(GC_OS_X+12, GC_OS_Y+3, GC_OS_X + 13, GC_OS_Y + 4);
+	glRectd(GC_OS_X+13, GC_OS_Y+4, GC_OS_X + 15, GC_OS_Y + 5);
+
+	/* E */
+	glRectd(GC_OS_X + 16, GC_OS_Y, GC_OS_X + 17, GC_OS_Y + 5);
+	glRectd(GC_OS_X + 17, GC_OS_Y , GC_OS_X + 19, GC_OS_Y + 1);
+	glRectd(GC_OS_X + 17, GC_OS_Y+2, GC_OS_X + 18, GC_OS_Y + 3);
+	glRectd(GC_OS_X + 17, GC_OS_Y+4, GC_OS_X + 19, GC_OS_Y + 5);
+}

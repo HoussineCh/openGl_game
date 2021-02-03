@@ -16,4 +16,7 @@ void unit(float, float);
 void drawgrid();
 void draw_snake();
 void draw_fewd();
+void draw_pause();
+void draw_game_over();
+
 
