@@ -16,7 +16,7 @@
 #include "Input.h"
 
 
-// Definitions
+// OpneGl initializations
 void open_GL(int argc, char** argv) {
 
     glutInit(&argc, argv);
@@ -33,7 +33,7 @@ void open_GL(int argc, char** argv) {
     glutMainLoop();
 }
 
-
+// Main looped program
 void displayCallBack() {
     glClear(GL_COLOR_BUFFER_BIT);
     Step();
@@ -48,7 +48,7 @@ void reshap_callback(int w, int h) {
     glMatrixMode(GL_MODELVIEW);
 }
 
-
+// Delay function
 void timer_callback(int p_time) {
     glutPostRedisplay();
     glutTimerFunc(1000 / (FPS_LIM * supeedo_wagon_val), timer_callback, 0);

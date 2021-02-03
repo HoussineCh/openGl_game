@@ -8,6 +8,8 @@
 // User defined files includes
 #include "Global_Variables.h"
 
+/*Global Variables*/
+extern bool g_box_pop;
 
 // Signature of the function Draw()
 void Draw(s_Game_info);
@@ -16,6 +18,8 @@ void unit(float, float);
 void drawgrid();
 void draw_snake();
 void draw_fewd();
+
+//void draw_start();
 void draw_pause();
 void draw_game_over();
 

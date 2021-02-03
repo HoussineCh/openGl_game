@@ -78,9 +78,17 @@ e_State State_Engine(s_Game_info p_current_state, int p_in_cmd) {
 
 	// Game over state
 	else if (p_current_state.state == e_State::GAME_OVER) {
-		// Back to main menu
-		l_current_state = e_State::START_SCREEN;	
-		e_Cmd::NO_CMD;
+		
+		if (p_in_cmd == (unsigned short)e_Cmd::RESTART) {
+			// Restart the game
+			l_current_state = e_State::START_SCREEN;
+			e_Cmd::NO_CMD;
+		}
+
+		// Checking if a restart is requested
+		else if (p_in_cmd == (unsigned short)e_Cmd::ESC) {
+			exit(0);
+		}
 	}
 
 	// Return the updated state
