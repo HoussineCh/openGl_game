@@ -1,10 +1,10 @@
 /*
 	File: Input.cpp
 	Author: H.CHERGUI
-	First version: 2.5
-	First version date: 25/01/2021
-	Current version: 2.6
-	Current version date: 29/01/2021
+	First version: 2.0
+	First version date: 03/02/2021
+	Current version: 2.0
+	Current version date: 03/02/2021
 */
 
 
@@ -34,6 +34,12 @@ e_State State_Engine(s_Game_info p_current_state, int p_in_cmd) {
 			// Run the game
 			l_current_state = e_State::RUNNING;
 		}
+
+		// Exiting the if requested
+		if (p_in_cmd == (unsigned short)e_Cmd::ESC) {
+			// Quit the game
+			exit(55);
+		}
 	}
 
 	// Running state
@@ -46,7 +52,7 @@ e_State State_Engine(s_Game_info p_current_state, int p_in_cmd) {
 		}
 
 		// Checking if a pause is requested
-		else if (p_in_cmd == (unsigned short)e_Cmd::PAUSE || p_in_cmd == (unsigned short)e_Cmd::PAUSE2) {
+		else if (p_in_cmd == (unsigned short)e_Cmd::PAUSE || p_in_cmd == (unsigned short)e_Cmd::ESC) {
 			// Pause the game
 			l_current_state = e_State::PAUSE;
 			g_key = 0;
@@ -57,7 +63,7 @@ e_State State_Engine(s_Game_info p_current_state, int p_in_cmd) {
 	else if (p_current_state.state == e_State::PAUSE) {
 		
 		// Checking whether the game is resumed
-		if (p_in_cmd == (unsigned short)e_Cmd::PAUSE || p_in_cmd == (unsigned short)e_Cmd::PAUSE2) {
+		if (p_in_cmd == (unsigned short)e_Cmd::PAUSE || p_in_cmd == (unsigned short)e_Cmd::ESC) {
 			// Resume the game
 			l_current_state = e_State::RUNNING;
 			g_key = 0;

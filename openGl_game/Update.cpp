@@ -2,9 +2,9 @@
 	File: Update.cpp
 	Author: H.CHERGUI
 	First version: 2.0
-	First version date: xxxxxxx
+	First version date: 03/02/2021
 	current version: 2.0
-	current version date: xxxxxxxx
+	current version date: 03/02/2021
 */
 
 // System files includes

@@ -2,9 +2,9 @@
 	File: Draw.cpp
 	Author:	H.CHERGUI
 	First version: 2.0
-	First version date: xxxxxxxxxx
+	First version date: 03/02/2021
 	current version: 2.0
-	current version date: xxxxxxxxxx
+	current version date: 03/02/2021
 */
 
 
@@ -25,9 +25,14 @@
 // Drawing the content on the screen
 void Draw(s_Game_info p_Game_info) {
 	drawgrid();
-	if (p_Game_info.state == e_State::RUNNING || p_Game_info.state == e_State::PAUSE) {
+	if (p_Game_info.state == e_State::RUNNING) {
 		draw_snake();
 		draw_fewd();
+	}
+	else if( p_Game_info.state == e_State::PAUSE) {
+		draw_snake();
+		draw_fewd();
+		// draw a pause msg
 	}
 	else if (p_Game_info.state == e_State::GAME_OVER) {
 		char s[15];
@@ -43,7 +48,6 @@ void Draw(s_Game_info p_Game_info) {
 			strcat_s(t, "\n\n\nSnaeke!...                           SNAAAEKE!\n\n                    (continue y/n?)");
 		}
 		MessageBox(NULL, LPCSTR(t), LPCSTR("Game Over!"), 0);
-		//exit(0);
 	}
 }
 
