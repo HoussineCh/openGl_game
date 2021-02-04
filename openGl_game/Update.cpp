@@ -3,7 +3,7 @@
 	Author: H.CHERGUI
 	First version: 2.0
 	First version date: 03/02/2021
-	current version: 2.7
+	current version: 2.7.5
 	current version date: 04/02/2021
 */
 
@@ -64,13 +64,12 @@ void ud_snake() {
 
 // Check if the snaek ate the fruit
 void check_fruit() {
-
 	if (fx == xx && fy == yy) {
 		score += 10;
 		tail_len++;
 		srand(unsigned int(time(NULL)));
-		fx = rand() % (GC_COL - 2) + 1;
-		fy = rand() % (GC_ROW - 4) + 1;
+		fx = rand() % (GC_COL - 6) + 3;
+		fy = rand() % (GC_ROW - 7) + 2;
 	}
 }
 

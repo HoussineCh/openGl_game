@@ -17,7 +17,6 @@
 // Declarations
 void open_GL(int, char**);
 
-
 void timer_callback(int);
 void displayCallBack();
 void reshap_callback(int, int);

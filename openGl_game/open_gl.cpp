@@ -23,7 +23,7 @@ void open_GL(int argc, char** argv) {
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
     glutInitWindowPosition(0, 0);
     glutInitWindowSize(GC_W, GC_H);
-    glutCreateWindow("snake gaem");
+    glutCreateWindow(WIN_NAME);
     glutFullScreen();
     glutDisplayFunc(displayCallBack);
     glutReshapeFunc(reshap_callback);

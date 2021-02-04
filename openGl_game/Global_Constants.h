@@ -1,5 +1,11 @@
 #pragma once
 
+// System files includes
+#include<iostream>
+
+// User defined files includes
+/*NONE*/
+
 // Resolution of window
 const long long GC_H = 720;
 const long long GC_W = 1280;
@@ -7,6 +13,13 @@ const long long GC_W = 1280;
 // In-game grid resolution
 const long long GC_ROW = GC_H/20;
 const long long GC_COL = GC_W/20;
+
+// Const messages
+extern const std::string local;
+extern const char* WIN_NAME;
+
+// Initial hi-score
+const long long GC_HI_SCORE = 100;
 
 // Offset constants for pause message
 const long long GC_P_OS_X = (GC_COL / 2) - 10;

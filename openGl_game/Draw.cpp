@@ -3,7 +3,7 @@
 	Author:	H.CHERGUI
 	First version: 2.0
 	First version date: 03/02/2021
-	current version: 2.7
+	current version: 2.7.5
 	current version date: 04/02/2021
 */
 
@@ -18,12 +18,13 @@
 // Drawing the content on the screen
 void Draw(s_Game_info p_Game_info) {
 	static bool g_box_pop;
+
 	if (p_Game_info.state == e_State::START_SCREEN) {
 		draw_start();		
 	}
 	else if (p_Game_info.state == e_State::RUNNING) {
-		draw_snake();
 		draw_fewd();
+		draw_snake();
 		g_box_pop = true;
 	}
 	else if( p_Game_info.state == e_State::PAUSE) {
@@ -36,17 +37,27 @@ void Draw(s_Game_info p_Game_info) {
 		if(g_box_pop){
 			char s[15];
 			_itoa_s(score, s, 10);
-			char t[250] = "teh score is: ";
-			strcat_s(t, s);
+			char t1[250] = "teh score is : ";
+			char t2[250] = "NEW HI-SCORE : ";
+
+			if (score > hi_score) {
+				strcat_s(t2, s);
+				strcat_s(t2, " !");
+				for (int i = 0; i < 250; i++)t1[i] = t2[i];
+				hi_score = score;
+			}
+			else {
+				strcat_s(t1, s);
+			}
 			if (p_Game_info.code == e_Cmd::COLLISION) {
-				strcat_s(t, "\nYou just hit yourself!!! Dont do that again!!");
-				strcat_s(t, "\n\n\nSnaeke!...                           SNAAAEKE!\n\n                    (continue y/n?)");
+				strcat_s(t1, "\n\n\nYou just hit yourself!!! Dont do that again!!");
+				strcat_s(t1, "\n\nSnaeke!...                           SNAAAEKE!\n\n                    (continue y/n?)");
 			}
 			else if (p_Game_info.code == e_Cmd::WALL_HIT) {
-				strcat_s(t, "\nDon't run away! stay inside the map!!");
-				strcat_s(t, "\n\n\nSnaeke!...                           SNAAAEKE!\n\n                    (continue y/n?)");
+				strcat_s(t1, "\n\n\nDon't run away! stay inside the map!!");
+				strcat_s(t1, "\n\nSnaeke!...                           SNAAAEKE!\n\n                    (continue y/n?)");
 			}
-			MessageBox(NULL, LPCSTR(t), LPCSTR("Game Over!"), 0);
+			MessageBox(NULL, LPCSTR(t1), LPCSTR("Game Over!"), 0);
 		}
 		g_box_pop = false;
 	}

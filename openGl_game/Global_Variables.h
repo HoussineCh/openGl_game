@@ -22,6 +22,5 @@ extern short supeedo_wagon_val;
 extern int fx, fy;
 
 extern int g_key;
-extern int g_special_key;
 
 extern s_Game_info g_Game_info;

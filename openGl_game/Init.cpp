@@ -3,8 +3,8 @@
     Author:	H.CHERGUI
     First version: 1.0
     First version date: 02/02/2021
-    current version: 2.0
-    current version date: 03/02/2021
+    current version: 2.7.5
+    current version date: 04/02/2021
 */
 
 // Sys includes
@@ -18,8 +18,8 @@
 
 int gridX, gridY;
 
-int score;
-int hi_score;
+int score = 0;
+int hi_score = GC_HI_SCORE;
 
 e_DIrection g_Direction;
 int xx , yy;
@@ -30,21 +30,21 @@ short supeedo_wagon_val;
 int fx, fy;
 
 int g_key;
-int g_special_key;
 
 s_Game_info g_Game_info;
+
+const std::string local = "snake gaem";
+const char* WIN_NAME = local.c_str();
 
 // Definitions
 void Init() {
     
     score = 0;
-    hi_score = 100;
 
     g_Direction = e_DIrection::UP;
     xx = GC_COL / 2, yy = GC_ROW / 2;
 
     g_key = 0;
-    g_special_key = 0;
 
     glClearColor(0.1, 0.1, 0.15, 1.0);
     initGrid(GC_COL, GC_ROW);
@@ -60,6 +60,8 @@ void Init() {
     supeedo_wagon_val = 1;
 
     g_Game_info = { e_State::START_SCREEN, e_Cmd::NO_CMD };
+    
+    ShowCursor(false);
 }
 
 void initGrid(int x, int y) {
