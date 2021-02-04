@@ -3,8 +3,8 @@
 	Author: H.CHERGUI
 	First version: 2.0
 	First version date: 03/02/2021
-	current version: 2.0
-	current version date: 03/02/2021
+	current version: 2.7
+	current version date: 04/02/2021
 */
 
 // System files includes
@@ -12,12 +12,6 @@
 
 // User defined files includes
 #include "Update.h"
-
-/*Global Variables definition*/
-/*NONE*/
-
-/*Global Constants*/
-/*NONE*/
 
 
 // Definition of the update function
@@ -31,11 +25,14 @@ s_Game_info Update(s_Game_info p_status, unsigned short p_in_cmd) {
 
 	if (l_status.state == e_State::RUNNING) {
 
+		// Check if snaek ate the fruit
+		check_fruit();
+
 		// Updating the snake
 		ud_snake();
 
-		// Check if snaek ate the fruit, and if a game over occured
-		l_status.code = check_event();
+		// Check if a game over occured
+		l_status.code = check_game_over();
 	}
 
 	// Return game status
@@ -43,6 +40,7 @@ s_Game_info Update(s_Game_info p_status, unsigned short p_in_cmd) {
 }
 
 void ud_snake() {
+
 	// update da tael!
 	std::pair<int, int> prev;
 	for (int i = 1; i < tail_len; i++) {
@@ -52,6 +50,7 @@ void ud_snake() {
 	}
 	tail[0] = std::make_pair(xx, yy);
 
+	// Move the snake
 	if (g_Direction == e_DIrection::UP)
 		yy++;
 	else if (g_Direction == e_DIrection::DOWN)
@@ -63,23 +62,8 @@ void ud_snake() {
 }
 
 
-e_Cmd check_event() {
-
-	// Local variable
-	e_Cmd l_cmd = e_Cmd::RUN;
-
-
-	for (int i = 0; i < tail_len; i++) {
-		if (xx == tail[i].first && yy == tail[i].second) {
-			l_cmd = e_Cmd::COLLISION;
-			break;
-		}
-	}
-
-	if (xx == 0 || xx == GC_COL - 1 || yy == 0 || yy == GC_ROW - 3) {
-		l_cmd = e_Cmd::WALL_HIT;
-	}
-		
+// Check if the snaek ate the fruit
+void check_fruit() {
 
 	if (fx == xx && fy == yy) {
 		score += 10;
@@ -87,6 +71,27 @@ e_Cmd check_event() {
 		srand(unsigned int(time(NULL)));
 		fx = rand() % (GC_COL - 2) + 1;
 		fy = rand() % (GC_ROW - 4) + 1;
+	}
+}
+
+
+// Check for a game over
+e_Cmd check_game_over() {
+
+	// Local variable
+	e_Cmd l_cmd = e_Cmd::RUN;
+
+	// Check if a collision happened
+	for (int i = 0; i < tail_len; i++) {
+		if (xx == tail[i].first && yy == tail[i].second) {
+			l_cmd = e_Cmd::COLLISION;
+			break;
+		}
+	}
+
+	// Check if snaek hit a wall
+	if (xx == 0 || xx == GC_COL - 1 || yy == 0 || yy == GC_ROW - 3) {
+		l_cmd = e_Cmd::WALL_HIT;
 	}
 
 	// Return status command

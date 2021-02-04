@@ -15,4 +15,5 @@ s_Game_info Update(s_Game_info, unsigned short);
 
 // Sub-functions signatures
 void ud_snake();
-e_Cmd check_event();
+void check_fruit();
+e_Cmd check_game_over();

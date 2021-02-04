@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Draw.cpp" />
+    <ClCompile Include="Draw_messages.cpp" />
     <ClCompile Include="Init.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main_gl.cpp" />

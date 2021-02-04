@@ -12,7 +12,7 @@
 #include "Step.h"
 
 // Macros
-#define FPS_LIM 2
+#define FPS_LIM 5
 
 // Declarations
 void open_GL(int, char**);

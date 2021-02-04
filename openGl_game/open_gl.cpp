@@ -3,8 +3,8 @@
     Author:	H.CHERGUI
     First version: 1.0
     First version date: 02/02/2021
-    current version: 2.0
-    current version date: 02/02/2021
+    current version: 2.7
+    current version date: 04/02/2021
 */
 
 // Sys includes
@@ -24,6 +24,7 @@ void open_GL(int argc, char** argv) {
     glutInitWindowPosition(0, 0);
     glutInitWindowSize(GC_W, GC_H);
     glutCreateWindow("snake gaem");
+    glutFullScreen();
     glutDisplayFunc(displayCallBack);
     glutReshapeFunc(reshap_callback);
     glutSpecialFunc(Special_callback);
