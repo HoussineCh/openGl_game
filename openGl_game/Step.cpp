@@ -3,8 +3,8 @@
 	Author:	H.CHERGUI
 	First version: 2.0
 	First version date: 03/02/2021
-	current version: 2.0
-	current version date: 03/02/2021
+	current version: 3.1
+	current version date: 06/02/2021
 */
 
 // Sys includes
@@ -14,10 +14,15 @@
 #include "Step.h"
 
 
-// Definitions
+// Function definition
 void Step() {
-	gs_Game_info = Update(gs_Game_info, g_key);
-	Draw(gs_Game_info);
+
+	// Local variables
+	s_Data_Cluster l_Prev = {g_Game_info, g_Snake, g_Food};
+	s_Data_Cluster l_Updated;
+
+	l_Updated = Update(l_Prev);
+	Draw();
 }
 
 

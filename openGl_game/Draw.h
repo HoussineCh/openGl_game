@@ -9,7 +9,7 @@
 
 
 // Declarations of drawing functions
-void Draw(s_Game_info);
+void Draw();
 
 void unit(float, float);
 void drawgrid();

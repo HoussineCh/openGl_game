@@ -16,6 +16,7 @@
 
 Snake::Snake() {
 	Tail.resize(100);
+    Speed = 1;
 }
 
 // Initialize snake

@@ -8,7 +8,6 @@
 // User includes
 #include "Global_Variables.h"
 #include "Global_Constants.h"
-#include "Types.h"
 
 
 // Declarations

@@ -5,10 +5,10 @@
 
 // User includes
 #include "Global_Constants.h"
-#include "Types.h"
 
 class Snake
 {
+public:
 	enum class e_Direction {
 		UP,
 		DOWN,
@@ -16,11 +16,13 @@ class Snake
 		LEFT
 	};
 
+private:
 	e_Direction Direction;
 	std::pair<long long, long long> Coordinates;
 	std::vector<std::pair<long long, long long>> Tail;
 	long long Tail_len;
 	long long Speed;
+
 public:
 	Snake();
 
@@ -53,4 +55,3 @@ public:
 	void Set_Tail(std::pair<long long, long long>, long long);
 	std::pair<long long, long long> Get_Tail(long long);
 };
-

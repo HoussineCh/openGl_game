@@ -4,7 +4,6 @@
 #include <Windows.h>
 
 // User defined files includes
-#include "Types.h"
 #include "Init.h"
 
 // System files includes
@@ -14,6 +13,6 @@
 /*NONE*/
 
 
-// Signature of the function State_Engine()
-e_State State_Engine(s_Game_info, int);
+// Declaration of the function State_Engine()
+Game_info State_Engine(Game_info);
 

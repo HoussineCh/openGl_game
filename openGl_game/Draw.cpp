@@ -3,8 +3,8 @@
 	Author:	H.CHERGUI
 	First version: 2.0
 	First version date: 03/02/2021
-	current version: 2.7.5
-	current version date: 04/02/2021
+	Current version: 3.1
+	Current version date: 06/02/2021
 */
 
 
@@ -16,50 +16,51 @@
 
 
 // Drawing the content on the screen
-void Draw(s_Game_info p_Game_info) {
+void Draw() {
 	static bool g_box_pop;
 
-	if (p_Game_info.state == e_State::START_SCREEN) {
+	if (g_Game_info.Get_state() == Game_info::e_State::START_SCREEN) {
 		draw_start();		
 	}
-	else if (p_Game_info.state == e_State::RUNNING) {
+	else if (g_Game_info.Get_state() == Game_info::e_State::RUNNING) {
 		draw_fewd();
 		draw_snake();
 		g_box_pop = true;
 	}
-	else if( p_Game_info.state == e_State::PAUSE) {
+	else if( g_Game_info.Get_state() == Game_info::e_State::PAUSE) {
 		draw_snake();
 		draw_fewd();
 		draw_pause();
 	}
-	else if (p_Game_info.state == e_State::GAME_OVER) {
+	else if (g_Game_info.Get_state() == Game_info::e_State::GAME_OVER) {
 		draw_game_over();
 		if(g_box_pop){
-			char s[15];
-			_itoa_s(score, s, 10);
-			char t1[250] = "teh score is : ";
+			
+			char t1[250] = "teh score is : ";	// make const
 			char t2[250] = "NEW HI-SCORE : ";
 
-			if (score > hi_score) {
+			char s[15];
+			_itoa_s(g_Game_info.Get_Score(), s, 10);
+
+			if (g_Game_info.Get_New_record()) {
 				strcat_s(t2, s);
 				strcat_s(t2, " !");
 				for (int i = 0; i < 250; i++)t1[i] = t2[i];
-				hi_score = score;
 			}
 			else {
 				strcat_s(t1, s);
 			}
-			if (p_Game_info.code == e_Cmd::COLLISION) {
+			if (g_Game_info.Get_code() == Game_info::e_Cmd::COLLISION_CMD) {
 				strcat_s(t1, "\n\n\nYou just hit yourself!!! Dont do that again!!");
 				strcat_s(t1, "\n\nSnaeke!...                           SNAAAEKE!\n\n                    (continue y/n?)");
 			}
-			else if (p_Game_info.code == e_Cmd::WALL_HIT) {
+			else if (g_Game_info.Get_code() == Game_info::e_Cmd::WALL_HIT_CMD) {
 				strcat_s(t1, "\n\n\nDon't run away! stay inside the map!!");
 				strcat_s(t1, "\n\nSnaeke!...                           SNAAAEKE!\n\n                    (continue y/n?)");
 			}
 			else {
 				strcat_s(t1, "\n\n\n>>[ERROR_409]::<p_Game_info.code>'s value is [UNKNOWN] !!");
-				std::cout << "p_Game_info.code: " << (int)p_Game_info.code << std::endl;
+				std::cout << "p_Game_info.code: " << (long long)g_Game_info.Get_code() << std::endl;
 			}
 			MessageBox(NULL, LPCSTR(t1), LPCSTR("Game Over!"), 0);
 		}
@@ -111,23 +112,27 @@ void draw_snake() {
 	
 	// Draw snaek
 	glColor3f(0.29, 0.29, 0.85);
-	glRectd(xx + 0.1, yy + 0.1, xx + 0.9, yy + 0.9);
+	glRectd( g_Snake.Get_Coordinates().first + 0.1, g_Snake.Get_Coordinates().second + 0.1, \
+		     g_Snake.Get_Coordinates().first + 0.9, g_Snake.Get_Coordinates().second + 0.9 );
 
 	// Draw his tail
 	glColor3f(0.29, 0.29, 0.7);
-	for (int i = 0; i < tail_len; i++) {
-		glRectd(tail[i].first + 0.3, tail[i].second + 0.3, tail[i].first + 0.7, tail[i].second + 0.7);
+	for (int i = 0; i < g_Snake.Get_Tail_length(); i++) {
+		glRectd( g_Snake.Get_Tail(i).first + 0.3, g_Snake.Get_Tail(i).second + 0.3, \
+			     g_Snake.Get_Tail(i).first + 0.7, g_Snake.Get_Tail(i).second + 0.7 );
 	}
 }
 
 void draw_fewd() {
 	glColor3f(0.55, 0.55, 0.65);
-	glRectd(fx + 0.1, fy + 0.1, fx + 0.9, fy + 0.9);
+	glRectd( g_Food.Get_Coordinates().first + 0.1, g_Food.Get_Coordinates().second + 0.1, \
+		     g_Food.Get_Coordinates().first + 0.9, g_Food.Get_Coordinates().second + 0.9) ;
+
 	glColor3f(0.1, 0.1, 0.1);
 	glBegin(GL_LINE_LOOP);
-	glVertex2f(fx + 0.3F, fy + 0.3F);
-	glVertex2f(fx + 0.7F, fy + 0.3F);
-	glVertex2f(fx + 0.7F, fy + 0.7F);
-	glVertex2f(fx + 0.3F, fy + 0.7F);
+	glVertex2f(g_Food.Get_Coordinates().first + 0.3F, g_Food.Get_Coordinates().second + 0.3F);
+	glVertex2f(g_Food.Get_Coordinates().first + 0.7F, g_Food.Get_Coordinates().second + 0.3F);
+	glVertex2f(g_Food.Get_Coordinates().first + 0.7F, g_Food.Get_Coordinates().second + 0.7F);
+	glVertex2f(g_Food.Get_Coordinates().first + 0.3F, g_Food.Get_Coordinates().second + 0.7F);
 	glEnd();
 }

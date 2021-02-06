@@ -167,12 +167,12 @@
     <ClInclude Include="Global_Variables.h" />
     <ClInclude Include="Init.h" />
     <ClInclude Include="Snake.h" />
-    <ClInclude Include="Types.h" />
     <ClInclude Include="Global_Init.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="open_gl.h" />
     <ClInclude Include="State_Engine.h" />
     <ClInclude Include="Step.h" />
+    <ClInclude Include="Types.h" />
     <ClInclude Include="Update.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -3,8 +3,8 @@
     Author:	H.CHERGUI
     First version: 1.0
     First version date: 02/02/2021
-    current version: 3.0
-    current version date: 05/02/2021
+	Current version: 3.1
+	Current version date: 06/02/2021
 */
 
 // Sys includes
@@ -51,6 +51,6 @@ void reshap_callback(int w, int h) {
 // Delay function
 void timer_callback(int p_time) {
     glutPostRedisplay();
-    glutTimerFunc(1000 / (FPS_LIM * supeedo_wagon_val), timer_callback, 0);
-    supeedo_wagon_val = 1;
+    glutTimerFunc(1000 / (FPS_LIM * g_Snake.Get_Speed()), timer_callback, 0);
+    g_Snake.Set_Speed(1);
 }
