@@ -8,7 +8,7 @@
 #include "Snake.h"
 #include "Food.h"
 
-// 
+// Game data structure
 struct s_Data_Cluster {
 	Game_info game_info;
 	Snake snake;

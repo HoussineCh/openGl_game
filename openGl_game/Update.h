@@ -2,8 +2,8 @@
 
 // System files includes
 #include<iostream>
-#include<GL/glut.h> 
-#include<GL/gl.h> 
+//#include<GL/glut.h> 
+//#include<GL/gl.h> 
 
 // User defined files includes
 #include "Types.h"
@@ -15,6 +15,6 @@
 s_Data_Cluster Update(s_Data_Cluster);
 
 // Sub-functions signatures
-void ud_snake();
-void check_fruit();
-void check_game_over();
+s_Data_Cluster check_fruit(s_Data_Cluster);
+Snake ud_snake(Snake);
+Game_info::e_Cmd check_game_over(s_Data_Cluster);

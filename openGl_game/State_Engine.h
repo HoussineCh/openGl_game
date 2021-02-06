@@ -1,18 +1,13 @@
 #pragma once
 
 // System files includes
-#include <Windows.h>
+/*NONE*/
 
 // User defined files includes
+#include "Types.h"
 #include "Init.h"
-
-// System files includes
-/*NONE*/
-
-// User defined files includes
-/*NONE*/
 
 
 // Declaration of the function State_Engine()
-Game_info State_Engine(Game_info);
+s_Data_Cluster State_Engine(s_Data_Cluster);
 

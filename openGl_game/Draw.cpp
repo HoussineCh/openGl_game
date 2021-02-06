@@ -3,7 +3,7 @@
 	Author:	H.CHERGUI
 	First version: 2.0
 	First version date: 03/02/2021
-	Current version: 3.1
+	Current version: 3.2
 	Current version date: 06/02/2021
 */
 
@@ -16,7 +16,7 @@
 
 
 // Drawing the content on the screen
-void Draw() {
+void Draw(s_Data_Cluster p_Data) {
 	static bool g_box_pop;
 
 	if (g_Game_info.Get_state() == Game_info::e_State::START_SCREEN) {
@@ -62,7 +62,11 @@ void Draw() {
 				strcat_s(t1, "\n\n\n>>[ERROR_409]::<p_Game_info.code>'s value is [UNKNOWN] !!");
 				std::cout << "p_Game_info.code: " << (long long)g_Game_info.Get_code() << std::endl;
 			}
+#ifdef _DEBUG
+			MessageBox(NULL, LPCWSTR(t1), LPCWSTR("Game Over!"), 0);
+#else
 			MessageBox(NULL, LPCSTR(t1), LPCSTR("Game Over!"), 0);
+#endif
 		}
 		g_box_pop = false;
 	}
@@ -98,7 +102,7 @@ void drawgrid() {
 	}
 }
 
-void unit(float x, float y) {
+void unit(double x, double y) {
 	glLineWidth(0.5);
 	glBegin(GL_LINE_LOOP);
 	glVertex2f(x, y);

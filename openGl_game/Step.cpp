@@ -3,8 +3,8 @@
 	Author:	H.CHERGUI
 	First version: 2.0
 	First version date: 03/02/2021
-	current version: 3.1
-	current version date: 06/02/2021
+	Current version: 3.2
+	Current version date: 06/02/2021
 */
 
 // Sys includes
@@ -22,7 +22,11 @@ void Step() {
 	s_Data_Cluster l_Updated;
 
 	l_Updated = Update(l_Prev);
-	Draw();
+	Draw(l_Updated);
+
+	g_Game_info = l_Updated.game_info;
+	g_Snake = l_Updated.snake;
+	g_Food = l_Updated.food;
 }
 
 

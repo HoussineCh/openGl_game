@@ -5,13 +5,14 @@
 #include<GL/gl.h> 
 
 // User defined files includes
+#include "Types.h"
 #include "Global_Variables.h"
 
 
 // Declarations of drawing functions
-void Draw();
+void Draw(s_Data_Cluster);
 
-void unit(float, float);
+void unit(double, double);
 void drawgrid();
 void draw_snake();
 void draw_fewd();

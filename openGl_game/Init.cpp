@@ -1,10 +1,10 @@
 /*
-    File: Start.cpp
+    File: Init.cpp
     Author:	H.CHERGUI
     First version: 1.0
     First version date: 02/02/2021
-    current version: 3.1
-    current version date: 06/02/2021
+	Current version: 3.2
+	Current version date: 06/02/2021
 */
 
 
@@ -16,17 +16,23 @@
 
 
 // Definitions
-void Init() {
+s_Data_Cluster Init(s_Data_Cluster p_Data) {
+
+    // local variable
+    s_Data_Cluster l_Initialized_data = p_Data;
 
     // Initialize score
-    g_Game_info.Init_Score();
+    l_Initialized_data.game_info.Init_Score();
 
     // Initialize snake
-    g_Snake.Init();
+    l_Initialized_data.snake.Init();
+
+    // Initialize food cordinates
+    l_Initialized_data.food.Generate_cordinates();
 
     // Hide cursor
     ShowCursor(false);
 
-    // Initialize food cordinates
-    g_Food.Generate_cordinates();
+    // Return initialized data
+    return l_Initialized_data;
 }

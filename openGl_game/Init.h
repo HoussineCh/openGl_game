@@ -6,10 +6,11 @@
 #include<GL/gl.h> 
 
 // User includes
+#include "Types.h"
 #include "Global_Variables.h"
 #include "Global_Constants.h"
 
 
 // Declarations
-void Init();
+s_Data_Cluster Init(s_Data_Cluster);
 
