@@ -15,8 +15,7 @@
 #include "State_Engine.h"
 
 
-// Definition of the function State_Engine()
-
+// Determining the current state of the game
 e_State State_Engine(s_Game_info p_current_state, int p_in_cmd) {
 
 	// Local variables

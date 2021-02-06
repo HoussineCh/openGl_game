@@ -15,7 +15,6 @@ const long long GC_ROW = GC_H/20;
 const long long GC_COL = GC_W/20;
 
 // Const messages
-extern const std::string local;
 extern const char* WIN_NAME;
 
 // Initial hi-score

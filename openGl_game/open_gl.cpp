@@ -3,8 +3,8 @@
     Author:	H.CHERGUI
     First version: 1.0
     First version date: 02/02/2021
-    current version: 2.7
-    current version date: 04/02/2021
+    current version: 3.0
+    current version date: 05/02/2021
 */
 
 // Sys includes
@@ -12,13 +12,12 @@
 
 // User includes
 #include "open_gl.h"
-#include "Init.h"
+#include "Global_Init.h"
 #include "Input.h"
 
 
 // OpneGl initializations
 void open_GL(int argc, char** argv) {
-
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
     glutInitWindowPosition(0, 0);
@@ -30,7 +29,7 @@ void open_GL(int argc, char** argv) {
     glutSpecialFunc(Special_callback);
     glutKeyboardFunc(keyboard_callback);
     glutTimerFunc(0, timer_callback, 0);
-    Init();
+    Global_Init();
     glutMainLoop();
 }
 

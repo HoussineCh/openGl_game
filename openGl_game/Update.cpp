@@ -18,7 +18,7 @@
 s_Game_info Update(s_Game_info p_status, unsigned short p_in_cmd) {
 
 	// Local variables
-	s_Game_info l_status;
+	s_Game_info l_status = p_status;
 
 	// Determining the current state
 	l_status.state = State_Engine(p_status, p_in_cmd);
@@ -51,13 +51,13 @@ void ud_snake() {
 	tail[0] = std::make_pair(xx, yy);
 
 	// Move the snake
-	if (g_Direction == e_DIrection::UP)
+	if (g_Direction == e_Direction::UP)
 		yy++;
-	else if (g_Direction == e_DIrection::DOWN)
+	else if (g_Direction == e_Direction::DOWN)
 		yy--;
-	else if (g_Direction == e_DIrection::RIGHT)
+	else if (g_Direction == e_Direction::RIGHT)
 		xx++;
-	else if (g_Direction == e_DIrection::LEFT)
+	else if (g_Direction == e_Direction::LEFT)
 		xx--;
 }
 

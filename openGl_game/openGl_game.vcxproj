@@ -147,20 +147,28 @@
   <ItemGroup>
     <ClCompile Include="Draw.cpp" />
     <ClCompile Include="Draw_messages.cpp" />
-    <ClCompile Include="Init.cpp" />
+    <ClCompile Include="Food.cpp" />
+    <ClCompile Include="Game_info.cpp" />
+    <ClCompile Include="Global_Init.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main_gl.cpp" />
     <ClCompile Include="open_gl.cpp" />
+    <ClCompile Include="Init.cpp" />
+    <ClCompile Include="Snake.cpp" />
     <ClCompile Include="State_Engine.cpp" />
     <ClCompile Include="Step.cpp" />
     <ClCompile Include="Update.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Draw.h" />
+    <ClInclude Include="Food.h" />
+    <ClInclude Include="Game_info.h" />
     <ClInclude Include="Global_Constants.h" />
     <ClInclude Include="Global_Variables.h" />
-    <ClInclude Include="Types.h" />
     <ClInclude Include="Init.h" />
+    <ClInclude Include="Snake.h" />
+    <ClInclude Include="Types.h" />
+    <ClInclude Include="Global_Init.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="open_gl.h" />
     <ClInclude Include="State_Engine.h" />

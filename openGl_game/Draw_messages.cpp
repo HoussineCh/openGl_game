@@ -50,7 +50,7 @@ void draw_pause() {
 }
 
 void draw_game_over() {
-	glColor3f(0.25, 0.2, 0.65);
+	glColor3f(0.62, 0.5, 0.75);
 
 	/* G */
 	glRectd(GC_GO_OS_X,		GC_GO_OS_Y1 + 1, GC_GO_OS_X + 1, GC_GO_OS_Y1 + 4);
@@ -107,7 +107,7 @@ void draw_game_over() {
 }
 
 void draw_start() {
-	glColor3f(0.65, 0.55, 0.85);
+	glColor3f(0.55, 0.55, 0.85);
 
 	/* H */
 	glRectd(GC_S_OS_X1,		GC_S_OS_Y1,		GC_S_OS_X1 + 1, GC_S_OS_Y1 + 5);

@@ -57,6 +57,10 @@ void Draw(s_Game_info p_Game_info) {
 				strcat_s(t1, "\n\n\nDon't run away! stay inside the map!!");
 				strcat_s(t1, "\n\nSnaeke!...                           SNAAAEKE!\n\n                    (continue y/n?)");
 			}
+			else {
+				strcat_s(t1, "\n\n\n>>[ERROR_409]::<p_Game_info.code>'s value is [UNKNOWN] !!");
+				std::cout << "p_Game_info.code: " << (int)p_Game_info.code << std::endl;
+			}
 			MessageBox(NULL, LPCSTR(t1), LPCSTR("Game Over!"), 0);
 		}
 		g_box_pop = false;
@@ -66,28 +70,28 @@ void Draw(s_Game_info p_Game_info) {
 
 void drawgrid() {
 	glColor3f(0.45, 0.45, 0.55);
-	for (int y = 0; y < gridY - 2; y++) {
+	for (int y = 0; y < GC_ROW - 2; y++) {
 		glRectd(0 + 0.1, y + 0.1, 0.9, y + 0.9);
 	}
-	for (int x = 1; x < gridX; x++) {
-		glRectd(x + 0.1, 0 + 0.1, x + 0.9, 0.9); glRectd(x + 0.1, gridY - 3 + 0.1, x + 0.9, gridY - 2.1);
+	for (int x = 1; x < GC_COL; x++) {
+		glRectd(x + 0.1, 0 + 0.1, x + 0.9, 0.9); glRectd(x + 0.1, GC_ROW - 3 + 0.1, x + 0.9, GC_ROW - 2.1);
 	}
-	for (int y = 0; y < gridY - 2; y++) {
-		glRectd(gridX - 1 + 0.1, y + 0.1, gridX, y + 0.9);
+	for (int y = 0; y < GC_ROW - 2; y++) {
+		glRectd(GC_COL - 1 + 0.1, y + 0.1, GC_COL, y + 0.9);
 	}
 
-	for (int y = 0; y < gridY - 2; y++) {
+	for (int y = 0; y < GC_ROW - 2; y++) {
 		unit(0, y);
 	}
-	for (int x = 1; x < gridX; x++) {
-		unit(x, 0);  unit(x, gridY - 3);
+	for (int x = 1; x < GC_COL; x++) {
+		unit(x, 0);  unit(x, GC_ROW - 3);
 	}
-	for (int y = 0; y < gridY - 2; y++) {
-		unit(gridX - 1, y);
+	for (int y = 0; y < GC_ROW - 2; y++) {
+		unit(GC_COL - 1, y);
 	}
 	glColor3f(0.0, 0.0, 0.0);
-	for (int x = 1; x < gridX - 1; x++) {
-		for (int y = 1; y < gridY - 3; y++) {
+	for (int x = 1; x < GC_COL - 1; x++) {
+		for (int y = 1; y < GC_ROW - 3; y++) {
 			unit(x, y);
 		}
 	}

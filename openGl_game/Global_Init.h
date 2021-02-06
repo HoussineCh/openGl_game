@@ -2,6 +2,7 @@
 
 // Sys includes
 #include<iostream>
+#include<vector>
 #include<GL/glut.h> 
 #include<GL/gl.h> 
 
@@ -12,5 +13,5 @@
 
 
 // Declarations
-void Init();
+void Global_Init();
 

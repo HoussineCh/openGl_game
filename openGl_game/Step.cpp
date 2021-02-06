@@ -16,8 +16,8 @@
 
 // Definitions
 void Step() {
-	g_Game_info = Update(g_Game_info, g_key);
-	Draw(g_Game_info);
+	gs_Game_info = Update(gs_Game_info, g_key);
+	Draw(gs_Game_info);
 }
 
 

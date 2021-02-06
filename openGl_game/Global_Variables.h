@@ -8,12 +8,15 @@
 #include "Types.h"
 
 
-extern int gridX, gridY;
+extern Game_info g_Game_info;
+extern Snake g_Snake;
+extern Food g_Food;
+
 
 extern int score;
 extern int hi_score;
 
-extern e_DIrection g_Direction;
+extern e_Direction g_Direction;
 extern int xx, yy;
 extern int tail_len;
 extern std::vector<std::pair<int, int>> tail;
@@ -23,4 +26,4 @@ extern int fx, fy;
 
 extern int g_key;
 
-extern s_Game_info g_Game_info;
+extern s_Game_info gs_Game_info;

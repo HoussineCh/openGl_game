@@ -1,6 +1,14 @@
 #pragma once
 
-enum class e_DIrection {
+// Sys includes
+/*None*/
+
+// User includes
+#include "Game_info.h"
+#include "Snake.h"
+#include "Food.h"
+
+enum class e_Direction {
 	UP,
 	DOWN ,
 	RIGHT,

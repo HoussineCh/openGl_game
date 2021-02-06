@@ -20,38 +20,38 @@ void Special_callback(int key, int, int) {
     static int prevy = -1;
     
     if (key == GLUT_KEY_UP) {
-        if (g_Direction != e_DIrection::DOWN && (prevx != xx || prevy != yy)) {
-            g_Direction = e_DIrection::UP;
+        if (g_Direction != e_Direction::DOWN && (prevx != xx || prevy != yy)) {
+            g_Direction = e_Direction::UP;
             prevx = xx; prevy = yy;
         }
-        else if (g_Direction == e_DIrection::UP) {
+        else if (g_Direction == e_Direction::UP) {
             supeedo_wagon_val = 3;
         }
     }
     else if (key == GLUT_KEY_DOWN) {
-        if (g_Direction != e_DIrection::UP && (prevx != xx || prevy != yy)) {
-            g_Direction = e_DIrection::DOWN;
+        if (g_Direction != e_Direction::UP && (prevx != xx || prevy != yy)) {
+            g_Direction = e_Direction::DOWN;
             prevx = xx; prevy = yy;
         }
-        else if (g_Direction == e_DIrection::DOWN) {
+        else if (g_Direction == e_Direction::DOWN) {
             supeedo_wagon_val = 3;
         }
     }
     else if (key == GLUT_KEY_RIGHT) {
-        if (g_Direction != e_DIrection::LEFT && (prevx != xx || prevy != yy)) {
-            g_Direction = e_DIrection::RIGHT;
+        if (g_Direction != e_Direction::LEFT && (prevx != xx || prevy != yy)) {
+            g_Direction = e_Direction::RIGHT;
             prevx = xx; prevy = yy;
         }
-        else if (g_Direction == e_DIrection::RIGHT) {
+        else if (g_Direction == e_Direction::RIGHT) {
             supeedo_wagon_val = 3;
         }
     }
     else if (key == GLUT_KEY_LEFT) {
-        if (g_Direction != e_DIrection::RIGHT && (prevx != xx || prevy != yy)) {
-            g_Direction = e_DIrection::LEFT;
+        if (g_Direction != e_Direction::RIGHT && (prevx != xx || prevy != yy)) {
+            g_Direction = e_Direction::LEFT;
             prevx = xx; prevy = yy;
         }
-        else if (g_Direction == e_DIrection::LEFT) {
+        else if (g_Direction == e_Direction::LEFT) {
             supeedo_wagon_val = 3;
         }
     }

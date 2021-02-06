@@ -1,7 +1,6 @@
 #pragma once
 
 // System files includes
-#include <iostream>
 #include<GL/glut.h> 
 #include<GL/gl.h> 
 
