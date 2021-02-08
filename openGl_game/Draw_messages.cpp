@@ -3,8 +3,8 @@
 	Author:	H.CHERGUI
 	First version: 2.7
 	First version date: 04/02/2021
-	current version: 2.7
-	current version date: 04/02/2021
+	current version: 3.3
+	current version date: 08/02/2021
 */
 
 
@@ -14,8 +14,8 @@
 // User defined files includes
 #include "Draw.h"
 
-// On-screen messages definition
 
+// On-screen messages definition
 void Draw_Start() {
 	glColor3f(0.55, 0.55, 0.85);
 
@@ -104,6 +104,7 @@ void Draw_Start() {
 	glRectd(GC_S_OS_X2 + 19, GC_S_OS_Y2 + 2, GC_S_OS_X2 + 22, GC_S_OS_Y2 + 3);
 	glRectd(GC_S_OS_X2 + 19, GC_S_OS_Y2 + 4, GC_S_OS_X2 + 23, GC_S_OS_Y2 + 5);
 }
+
 void Draw_Pause() {
 	glColor3f(0.35, 0.2, 0.65);
 

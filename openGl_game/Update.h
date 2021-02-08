@@ -16,5 +16,5 @@ s_Data_Cluster Update(s_Data_Cluster);
 
 // Sub-functions signatures
 s_Data_Cluster check_fruit(s_Data_Cluster);
-Snake ud_snake(Snake);
-Game_info::e_Cmd check_game_over(s_Data_Cluster);
+s_Data_Cluster ud_snake(s_Data_Cluster);
+Game_info::e_Cmd check_game_over(Snake);

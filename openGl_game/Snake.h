@@ -13,7 +13,8 @@ public:
 		UP,
 		DOWN,
 		RIGHT,
-		LEFT
+		LEFT,
+		NONE
 	};
 
 private:
