@@ -3,8 +3,8 @@
     Author:	H.CHERGUI
     First version: 1.0
     First version date: 02/02/2021
-	Current version: 3.2
-	Current version date: 06/02/2021
+	Current version: 3.3
+	Current version date: 08/02/2021
 */
 
 
@@ -22,7 +22,7 @@ s_Data_Cluster Init(s_Data_Cluster p_Data) {
     s_Data_Cluster l_Initialized_data = p_Data;
 
     // Initialize score
-    l_Initialized_data.game_info.Init_Score();
+    l_Initialized_data.game_info.Init_Game_info();
 
     // Initialize snake
     l_Initialized_data.snake.Init();

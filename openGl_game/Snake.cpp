@@ -3,8 +3,8 @@
     Author:	H.CHERGUI
     First version: 3.0
     First version date: 05/02/2021
-    current version: 3.0
-    current version date: 05/02/2021
+	Current version: 3.3
+	Current version date: 08/02/2021
 */
 
 // Sys includes
@@ -32,6 +32,7 @@ void Snake::Init() {
     for (int i = 0; i <= Tail_len; i++) {
         Tail[i] = std::make_pair(GC_COL / 2, GC_ROW / 2 - i - 1);
     }
+    Speed = 1;
 }
 
 void Snake::IncX() {

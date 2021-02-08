@@ -3,8 +3,8 @@
     Author:	H.CHERGUI
     First version: 3.0
     First version date: 05/02/2021
-    current version: 3.1
-    current version date: 06/02/2021
+	Current version: 3.3
+	Current version date: 08/02/2021
 */
 
 // Sys includes
@@ -18,9 +18,11 @@ Game_info::Game_info() {
 	Hi_Score = GC_HI_SCORE;
 }
 
-void Game_info::Init_Score() {
+void Game_info::Init_Game_info() {
     Score = 0;
     New_record = false;
+    Input_key = 0;
+    Special_key = 0;
 }
 
 void Game_info::Determine_Score() {
@@ -69,11 +71,11 @@ void Game_info::Clear_Input_key() {
     Input_key = 0;
 }
 
-void Game_info::Set_Special_key(int p_key) {
-    Special_key = p_key;
+void Game_info::Set_Special_key(long long p_special_key) {
+    Special_key = p_special_key;
 }
 
-int Game_info::Get_Special_key() {
+long long Game_info::Get_Special_key() {
     return Special_key;
 }
 
