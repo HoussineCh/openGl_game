@@ -12,13 +12,13 @@
 // Declarations of drawing functions
 void Draw(s_Data_Cluster);
 
-void unit(double, double);
-void drawgrid();
-void draw_snake();
-void draw_fewd();
+void Draw_Unit(double, double);
+void Draw_Grid();
+void Draw_Snake(Snake);
+void Draw_Fewd(Food);
 
-void draw_start();
-void draw_pause();
-void draw_game_over();
+void Draw_Start();
+void Draw_Pause();
+void Draw_Game_Over();
 
 

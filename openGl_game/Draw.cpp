@@ -3,8 +3,8 @@
 	Author:	H.CHERGUI
 	First version: 2.0
 	First version date: 03/02/2021
-	Current version: 3.2
-	Current version date: 06/02/2021
+	Current version: 3.2.5
+	Current version date: 08/02/2021
 */
 
 
@@ -17,32 +17,32 @@
 
 // Drawing the content on the screen
 void Draw(s_Data_Cluster p_Data) {
-	static bool g_box_pop;
+	static bool g_Pop_Once;
 
-	if (g_Game_info.Get_state() == Game_info::e_State::START_SCREEN) {
-		draw_start();		
+	if (p_Data.game_info.Get_state() == Game_info::e_State::START_SCREEN) {
+		Draw_Start();		
 	}
-	else if (g_Game_info.Get_state() == Game_info::e_State::RUNNING) {
-		draw_fewd();
-		draw_snake();
-		g_box_pop = true;
+	else if (p_Data.game_info.Get_state() == Game_info::e_State::RUNNING) {
+		Draw_Fewd(p_Data.food);
+		Draw_Snake(p_Data.snake);
+		g_Pop_Once = true;
 	}
-	else if( g_Game_info.Get_state() == Game_info::e_State::PAUSE) {
-		draw_snake();
-		draw_fewd();
-		draw_pause();
+	else if( p_Data.game_info.Get_state() == Game_info::e_State::PAUSE) {
+		Draw_Fewd(p_Data.food);
+		Draw_Snake(p_Data.snake);
+		Draw_Pause();
 	}
-	else if (g_Game_info.Get_state() == Game_info::e_State::GAME_OVER) {
-		draw_game_over();
-		if(g_box_pop){
+	else if (p_Data.game_info.Get_state() == Game_info::e_State::GAME_OVER) {
+		Draw_Game_Over();
+		if(g_Pop_Once){
 			
 			char t1[250] = "teh score is : ";	// make const
 			char t2[250] = "NEW HI-SCORE : ";
 
 			char s[15];
-			_itoa_s(g_Game_info.Get_Score(), s, 10);
+			_itoa_s(p_Data.game_info.Get_Score(), s, 10);
 
-			if (g_Game_info.Get_New_record()) {
+			if (p_Data.game_info.Get_New_record()) {
 				strcat_s(t2, s);
 				strcat_s(t2, " !");
 				for (int i = 0; i < 250; i++)t1[i] = t2[i];
@@ -50,30 +50,26 @@ void Draw(s_Data_Cluster p_Data) {
 			else {
 				strcat_s(t1, s);
 			}
-			if (g_Game_info.Get_code() == Game_info::e_Cmd::COLLISION_CMD) {
+			if (p_Data.game_info.Get_code() == Game_info::e_Cmd::COLLISION_CMD) {
 				strcat_s(t1, "\n\n\nYou just hit yourself!!! Dont do that again!!");
 				strcat_s(t1, "\n\nSnaeke!...                           SNAAAEKE!\n\n                    (continue y/n?)");
 			}
-			else if (g_Game_info.Get_code() == Game_info::e_Cmd::WALL_HIT_CMD) {
+			else if (p_Data.game_info.Get_code() == Game_info::e_Cmd::WALL_HIT_CMD) {
 				strcat_s(t1, "\n\n\nDon't run away! stay inside the map!!");
 				strcat_s(t1, "\n\nSnaeke!...                           SNAAAEKE!\n\n                    (continue y/n?)");
 			}
 			else {
 				strcat_s(t1, "\n\n\n>>[ERROR_409]::<p_Game_info.code>'s value is [UNKNOWN] !!");
-				std::cout << "p_Game_info.code: " << (long long)g_Game_info.Get_code() << std::endl;
+				std::cout << "p_Game_info.code: " << (long long)p_Data.game_info.Get_code() << std::endl;
 			}
-#ifdef _DEBUG
-			MessageBox(NULL, LPCWSTR(t1), LPCWSTR("Game Over!"), 0);
-#else
 			MessageBox(NULL, LPCSTR(t1), LPCSTR("Game Over!"), 0);
-#endif
 		}
-		g_box_pop = false;
+		g_Pop_Once = false;
 	}
-	drawgrid();
+	Draw_Grid();
 }
 
-void drawgrid() {
+void Draw_Grid() {
 	glColor3f(0.45, 0.45, 0.55);
 	for (int y = 0; y < GC_ROW - 2; y++) {
 		glRectd(0 + 0.1, y + 0.1, 0.9, y + 0.9);
@@ -86,23 +82,23 @@ void drawgrid() {
 	}
 
 	for (int y = 0; y < GC_ROW - 2; y++) {
-		unit(0, y);
+		Draw_Unit(0, y);
 	}
 	for (int x = 1; x < GC_COL; x++) {
-		unit(x, 0);  unit(x, GC_ROW - 3);
+		Draw_Unit(x, 0);  Draw_Unit(x, GC_ROW - 3);
 	}
 	for (int y = 0; y < GC_ROW - 2; y++) {
-		unit(GC_COL - 1, y);
+		Draw_Unit(GC_COL - 1, y);
 	}
 	glColor3f(0.0, 0.0, 0.0);
 	for (int x = 1; x < GC_COL - 1; x++) {
 		for (int y = 1; y < GC_ROW - 3; y++) {
-			unit(x, y);
+			Draw_Unit(x, y);
 		}
 	}
 }
 
-void unit(double x, double y) {
+void Draw_Unit(double x, double y) {
 	glLineWidth(0.5);
 	glBegin(GL_LINE_LOOP);
 	glVertex2f(x, y);
@@ -112,31 +108,34 @@ void unit(double x, double y) {
 	glEnd();
 }
 
-void draw_snake() {
+void Draw_Snake(Snake p_Snake) {
 	
 	// Draw snaek
 	glColor3f(0.29, 0.29, 0.85);
-	glRectd( g_Snake.Get_Coordinates().first + 0.1, g_Snake.Get_Coordinates().second + 0.1, \
-		     g_Snake.Get_Coordinates().first + 0.9, g_Snake.Get_Coordinates().second + 0.9 );
+	glRectd(p_Snake.Get_Coordinates().first + 0.1, p_Snake.Get_Coordinates().second + 0.1, \
+		     p_Snake.Get_Coordinates().first + 0.9, p_Snake.Get_Coordinates().second + 0.9 );
 
 	// Draw his tail
 	glColor3f(0.29, 0.29, 0.7);
-	for (int i = 0; i < g_Snake.Get_Tail_length(); i++) {
-		glRectd( g_Snake.Get_Tail(i).first + 0.3, g_Snake.Get_Tail(i).second + 0.3, \
-			     g_Snake.Get_Tail(i).first + 0.7, g_Snake.Get_Tail(i).second + 0.7 );
+	for (int i = 0; i < p_Snake.Get_Tail_length(); i++) {
+		glRectd( p_Snake.Get_Tail(i).first + 0.3, p_Snake.Get_Tail(i).second + 0.3, \
+			     p_Snake.Get_Tail(i).first + 0.7, p_Snake.Get_Tail(i).second + 0.7 );
 	}
 }
 
-void draw_fewd() {
-	glColor3f(0.55, 0.55, 0.65);
-	glRectd( g_Food.Get_Coordinates().first + 0.1, g_Food.Get_Coordinates().second + 0.1, \
-		     g_Food.Get_Coordinates().first + 0.9, g_Food.Get_Coordinates().second + 0.9) ;
+void Draw_Fewd(Food p_Food) {
 
+	// Draw Food
+	glColor3f(0.55, 0.55, 0.65);
+	glRectd( p_Food.Get_Coordinates().first + 0.1, p_Food.Get_Coordinates().second + 0.1, \
+		     p_Food.Get_Coordinates().first + 0.9, p_Food.Get_Coordinates().second + 0.9) ;
+
+	// Decorate the inner of fewd
 	glColor3f(0.1, 0.1, 0.1);
 	glBegin(GL_LINE_LOOP);
-	glVertex2f(g_Food.Get_Coordinates().first + 0.3F, g_Food.Get_Coordinates().second + 0.3F);
-	glVertex2f(g_Food.Get_Coordinates().first + 0.7F, g_Food.Get_Coordinates().second + 0.3F);
-	glVertex2f(g_Food.Get_Coordinates().first + 0.7F, g_Food.Get_Coordinates().second + 0.7F);
-	glVertex2f(g_Food.Get_Coordinates().first + 0.3F, g_Food.Get_Coordinates().second + 0.7F);
+	glVertex2f(p_Food.Get_Coordinates().first + 0.3F, p_Food.Get_Coordinates().second + 0.3F);
+	glVertex2f(p_Food.Get_Coordinates().first + 0.7F, p_Food.Get_Coordinates().second + 0.3F);
+	glVertex2f(p_Food.Get_Coordinates().first + 0.7F, p_Food.Get_Coordinates().second + 0.7F);
+	glVertex2f(p_Food.Get_Coordinates().first + 0.3F, p_Food.Get_Coordinates().second + 0.7F);
 	glEnd();
 }
