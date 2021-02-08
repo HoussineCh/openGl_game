@@ -57,14 +57,26 @@ Game_info::e_Cmd Game_info::Get_code() {
     return Code;
 }
 
-void Game_info::Set_input_key(unsigned char p_key) {
-    input_key = p_key;
+void Game_info::Set_Input_key(unsigned char p_key) {
+    Input_key = p_key;
 }
 
-unsigned char Game_info::Get_input_key() {
-    return input_key;
+unsigned char Game_info::Get_Input_key() {
+    return Input_key;
 }
 
-void Game_info::Clear_input_key() {
-    input_key = 0;
+void Game_info::Clear_Input_key() {
+    Input_key = 0;
+}
+
+void Game_info::Set_Special_key(int p_key) {
+    Special_key = p_key;
+}
+
+int Game_info::Get_Special_key() {
+    return Special_key;
+}
+
+void Game_info::Clear_Special_key() {
+    Special_key = 0;
 }

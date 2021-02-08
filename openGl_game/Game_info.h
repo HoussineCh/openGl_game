@@ -32,7 +32,8 @@ private:
 	e_State State;
 	e_Cmd Code;
 	bool New_record;
-	unsigned char input_key;
+	unsigned char Input_key;
+	int Special_key;
 
 public:
 	Game_info();
@@ -47,7 +48,11 @@ public:
 	e_State Get_state();
 	e_Cmd Get_code();
 
-	void Set_input_key(unsigned char);
-	unsigned char Get_input_key();
-	void Clear_input_key();
+	void Set_Input_key(unsigned char);
+	unsigned char Get_Input_key();
+	void Clear_Input_key();
+
+	void Set_Special_key(int);
+	int Get_Special_key();
+	void Clear_Special_key();
 };
