@@ -31,7 +31,6 @@ s_Data_Cluster Update(s_Data_Cluster p_data) {
 		// Updating the snake
 		l_Data = ud_snake(l_Data);
 
-
 		// Check if a game over occured
 		l_Data.game_info.Set_code(check_game_over(l_Data.snake));
 	}
