@@ -88,7 +88,6 @@ s_Data_Cluster State_Engine(s_Data_Cluster p_Data) {
 			exit(0);
 		}
 	}
-	l_Data.game_info.Clear_Input_key();		/////////////////
 
 	// Return the updated state
 	return l_Data;

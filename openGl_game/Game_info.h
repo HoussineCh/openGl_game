@@ -38,7 +38,7 @@ private:
 public:
 	Game_info();
 
-	void Init_Score();
+	void Init_Game_info();
 	void Determine_Score();
 	long long Get_Score();
 	bool Get_New_record();
@@ -52,7 +52,7 @@ public:
 	unsigned char Get_Input_key();
 	void Clear_Input_key();
 
-	void Set_Special_key(int);
-	int Get_Special_key();
+	void Set_Special_key(long long);
+	long long Get_Special_key();
 	void Clear_Special_key();
 };
