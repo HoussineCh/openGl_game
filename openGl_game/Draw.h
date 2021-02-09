@@ -1,4 +1,4 @@
-#pragma once
+#pragma onceDraw_Pause
 
 // System files includes
 #include<GL/glut.h> 

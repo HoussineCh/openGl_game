@@ -3,7 +3,7 @@
 	Author: H.CHERGUI
 	First version: 2.0
 	First version date: 03/02/2021
-	Current version: 3.3
+	Current version: 3.3.5
 	Current version date: 08/02/2021
 */
 
@@ -30,7 +30,6 @@ s_Data_Cluster Update(s_Data_Cluster p_data) {
 
 		// Updating the snake
 		l_Data = ud_snake(l_Data);
-
 
 		// Check if a game over occured
 		l_Data.game_info.Set_code(check_game_over(l_Data.snake));
