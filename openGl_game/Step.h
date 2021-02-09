@@ -14,5 +14,6 @@
 #include "Update.h"
 #include "Draw.h"
 
-// Function declaration
+
+// Step function declaration
 void Step();

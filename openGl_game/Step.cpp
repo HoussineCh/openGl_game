@@ -3,8 +3,8 @@
 	Author:	H.CHERGUI
 	First version: 2.0
 	First version date: 03/02/2021
-	Current version: 3.2
-	Current version date: 06/02/2021
+	Current version: 3.4
+	Current version date: 09/02/2021
 */
 
 
@@ -29,6 +29,3 @@ void Step() {
 	g_Snake = l_Updated.snake;
 	g_Food = l_Updated.food;
 }
-
-
-

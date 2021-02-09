@@ -25,8 +25,8 @@ void open_GL(int argc, char** argv) {
     glutFullScreen();
     glutDisplayFunc(displayCallBack);
     glutReshapeFunc(reshap_callback);
-    glutSpecialFunc(Special_callback);
     glutKeyboardFunc(keyboard_callback);
+    glutSpecialFunc(Special_callback);
     glutTimerFunc(0, timer_callback, 0);
     Global_Init();
     glutMainLoop();
@@ -52,12 +52,12 @@ void timer_callback(int) {
     glutTimerFunc(1000 / (FPS_LIM * g_Snake.Get_Speed()), timer_callback, 0);
 }
 
-// Special keys input function
-void Special_callback(int key, int, int) {
-    g_Game_info.Set_Special_key(key);
-}
-
 // Normal keys input function
 void keyboard_callback(unsigned char key, int, int) {
     g_Game_info.Set_Input_key(key);
+}
+
+// Special keys input function
+void Special_callback(int key, int, int) {
+    g_Game_info.Set_Special_key(key);
 }

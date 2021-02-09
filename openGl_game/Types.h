@@ -1,7 +1,7 @@
 #pragma once
 
 // Sys includes
-/*none*/
+/*NONE*/
 
 // User includes
 #include "Game_info.h"

@@ -3,9 +3,10 @@
     Author:	H.CHERGUI
     First version: 3.0
     First version date: 05/02/2021
-	Current version: 3.3.5
-	Current version date: 08/02/2021
+    current version: 3.4
+    current version date: 09/02/2021
 */
+
 
 // Sys includes
 /*NONE*/
@@ -14,10 +15,12 @@
 #include "Game_info.h"
 
 
+// Default constructor
 Game_info::Game_info() {
 	Hi_Score = GC_HI_SCORE;
 }
 
+// Initialize the game's informations
 void Game_info::Init_Game_info() {
     Score = 0;
     New_record = false;
@@ -25,6 +28,7 @@ void Game_info::Init_Game_info() {
     Special_key = 0;
 }
 
+// Initialize the game's score and hi-score
 void Game_info::Determine_Score() {
     if (Score < Hi_Score) {
         Score += 10;
@@ -39,10 +43,12 @@ long long Game_info::Get_Score() {
     return Score;
 }
 
+// Verify if a new record is obtained
 bool Game_info::Get_New_record() {
     return New_record;
 }
 
+// Access the games's state and the internal code
 void Game_info::Set_state(e_State p_state) {
     State = p_state;
 }
@@ -59,6 +65,7 @@ Game_info::e_Cmd Game_info::Get_code() {
     return Code;
 }
 
+// Acccess the input keys 
 void Game_info::Set_Input_key(unsigned char p_key) {
     Input_key = p_key;
 }
@@ -71,6 +78,7 @@ void Game_info::Clear_Input_key() {
     Input_key = 0;
 }
 
+// Acccess the special keys 
 void Game_info::Set_Special_key(long long p_special_key) {
     Special_key = p_special_key;
 }

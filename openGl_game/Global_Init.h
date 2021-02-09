@@ -11,6 +11,5 @@
 #include "Global_Constants.h"
 
 
-// Declarations
+// Declaration of global initialization function
 void Global_Init();
-

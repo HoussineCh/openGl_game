@@ -3,15 +3,17 @@
     Author:	H.CHERGUI
     First version: 3.0
     First version date: 05/02/2021
-    current version: 3.0
-    current version date: 05/02/2021
+    current version: 3.4
+    current version date: 09/02/2021
 */
+
 
 // Sys includes
 /*NONE*/
 
 // User includes
 #include "Food.h"
+
 
 // Generate fuit at random position
 void Food::Generate_cordinates() {
@@ -20,7 +22,7 @@ void Food::Generate_cordinates() {
     Coordinates.second = rand() % (GC_ROW - 7) + 2;
 }
 
-// Return the corordinates of da fruit
+// Return the corordinates of the fruit
 std::pair<long long, long long> Food::Get_Coordinates() {
     return Coordinates;
 }

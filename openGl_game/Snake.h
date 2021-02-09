@@ -6,6 +6,8 @@
 // User includes
 #include "Global_Constants.h"
 
+
+// Snake class definition
 class Snake
 {
 public:

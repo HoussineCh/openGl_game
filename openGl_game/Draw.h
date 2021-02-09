@@ -1,4 +1,4 @@
-#pragma onceDraw_Pause
+#pragma
 
 // System files includes
 #include<GL/glut.h> 
@@ -20,5 +20,3 @@ void Draw_Fewd(Food);
 void Draw_Start();
 void Draw_Pause();
 void Draw_Game_Over();
-
-

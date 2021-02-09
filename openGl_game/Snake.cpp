@@ -7,6 +7,7 @@
 	Current version date: 09/02/2021
 */
 
+
 // Sys includes
 /*NONE*/
 
@@ -53,6 +54,7 @@ void Snake::DecY() {
 	Coordinates.second--;
 }
 
+// Access the snake's coordinates
 std::pair<long long, long long> Snake::Get_Coordinates() {
 	return Coordinates;
 }

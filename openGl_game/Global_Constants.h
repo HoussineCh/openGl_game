@@ -6,6 +6,7 @@
 // User defined files includes
 /*NONE*/
 
+
 // Resolution of window
 const long long GC_H = 720;
 const long long GC_W = 1280;

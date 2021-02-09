@@ -26,9 +26,9 @@ Food g_Food;
 char local[11] = "snake gaem";
 const char* WIN_NAME = local;
 
+
 // Definitions
 void Global_Init() {
     // Background color
     glClearColor(0.15, 0.15, 0.3, 1.0);
 }
-

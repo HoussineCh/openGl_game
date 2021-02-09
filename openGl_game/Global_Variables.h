@@ -13,4 +13,3 @@
 extern Game_info g_Game_info;
 extern Snake g_Snake;
 extern Food g_Food;
-

@@ -11,6 +11,5 @@
 #include "Global_Constants.h"
 
 
-// Declarations
+// Declaration of init function
 s_Data_Cluster Init(s_Data_Cluster);
-
