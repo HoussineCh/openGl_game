@@ -3,8 +3,8 @@
 	Author:	H.CHERGUI
 	First version: 2.0
 	First version date: 03/02/2021
-	Current version: 3.2.5
-	Current version date: 08/02/2021
+	Current version: 3.4
+	Current version date: 09/02/2021
 */
 
 
@@ -17,23 +17,37 @@
 
 // Drawing the content on the screen
 void Draw(s_Data_Cluster p_Data) {
+	
+	// Local variable
 	static bool g_Pop_Once;
 
+	// Clear the previous screen content
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	// Main menu screen
 	if (p_Data.game_info.Get_state() == Game_info::e_State::START_SCREEN) {
 		Draw_Start();		
 	}
+
+	// Running the game
 	else if (p_Data.game_info.Get_state() == Game_info::e_State::RUNNING) {
 		Draw_Fewd(p_Data.food);
 		Draw_Snake(p_Data.snake);
 		g_Pop_Once = true;
 	}
+
+	// Pause screen
 	else if( p_Data.game_info.Get_state() == Game_info::e_State::PAUSE) {
 		Draw_Fewd(p_Data.food);
 		Draw_Snake(p_Data.snake);
 		Draw_Pause();
 	}
+
+	// Game over screen
 	else if (p_Data.game_info.Get_state() == Game_info::e_State::GAME_OVER) {
 		Draw_Game_Over();
+		
+		// Show the pop-up only once
 		if(g_Pop_Once){
 			
 			char t1[250] = "teh score is : ";	// make const
@@ -67,8 +81,12 @@ void Draw(s_Data_Cluster p_Data) {
 		g_Pop_Once = false;
 	}
 	Draw_Grid();
+	
+	// Print the content of the buffer
+	glutSwapBuffers();
 }
 
+// Draw the grid
 void Draw_Grid() {
 	glColor3f(0.45, 0.45, 0.55);
 	for (int y = 0; y < GC_ROW - 2; y++) {
@@ -98,6 +116,7 @@ void Draw_Grid() {
 	}
 }
 
+// Draw an unfilled rectangle
 void Draw_Unit(double x, double y) {
 	glLineWidth(0.5);
 	glBegin(GL_LINE_LOOP);
@@ -108,9 +127,10 @@ void Draw_Unit(double x, double y) {
 	glEnd();
 }
 
+// Draw the snake
 void Draw_Snake(Snake p_Snake) {
 	
-	// Draw snaek
+	// Draw snake's head
 	glColor3f(0.29, 0.29, 0.85);
 	glRectd(p_Snake.Get_Coordinates().first + 0.1, p_Snake.Get_Coordinates().second + 0.1, \
 		     p_Snake.Get_Coordinates().first + 0.9, p_Snake.Get_Coordinates().second + 0.9 );
@@ -123,14 +143,15 @@ void Draw_Snake(Snake p_Snake) {
 	}
 }
 
+// Draw Food
 void Draw_Fewd(Food p_Food) {
 
-	// Draw Food
+	// Draw the outline of the food
 	glColor3f(0.55, 0.55, 0.65);
 	glRectd( p_Food.Get_Coordinates().first + 0.1, p_Food.Get_Coordinates().second + 0.1, \
 		     p_Food.Get_Coordinates().first + 0.9, p_Food.Get_Coordinates().second + 0.9) ;
 
-	// Decorate the inner of fewd
+	// Decorate its inner
 	glColor3f(0.1, 0.1, 0.1);
 	glBegin(GL_LINE_LOOP);
 	glVertex2f(p_Food.Get_Coordinates().first + 0.3F, p_Food.Get_Coordinates().second + 0.3F);

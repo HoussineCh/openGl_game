@@ -25,8 +25,10 @@ private:
 	long long Speed;
 
 public:
+	// Default constructor
 	Snake();
 
+	// Initialize the snake
 	void Init();
 
 	// Increment and decrement methods for snake's coordinates

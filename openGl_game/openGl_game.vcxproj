@@ -154,7 +154,6 @@
     <ClCompile Include="Food.cpp" />
     <ClCompile Include="Game_info.cpp" />
     <ClCompile Include="Global_Init.cpp" />
-    <ClCompile Include="Input.cpp" />
     <ClCompile Include="main_gl.cpp" />
     <ClCompile Include="open_gl.cpp" />
     <ClCompile Include="Init.cpp" />
@@ -172,7 +171,6 @@
     <ClInclude Include="Init.h" />
     <ClInclude Include="Snake.h" />
     <ClInclude Include="Global_Init.h" />
-    <ClInclude Include="Input.h" />
     <ClInclude Include="open_gl.h" />
     <ClInclude Include="State_Engine.h" />
     <ClInclude Include="Step.h" />

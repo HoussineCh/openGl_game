@@ -3,17 +3,16 @@
     Author:	H.CHERGUI
     First version: 1.0
     First version date: 02/02/2021
-	Current version: 3.3.5
-	Current version date: 08/02/2021
+	Current version: 3.4
+	Current version date: 09/02/2021
 */
+
 
 // Sys includes
 /*NONE*/
 
 // User includes
 #include "open_gl.h"
-#include "Global_Init.h"
-#include "Input.h"
 
 
 // OpneGl initializations
@@ -35,11 +34,10 @@ void open_GL(int argc, char** argv) {
 
 // Main looped program
 void displayCallBack() {
-    glClear(GL_COLOR_BUFFER_BIT);
     Step();
-    glutSwapBuffers();
 }
 
+// Called when reshaping the window
 void reshap_callback(int w, int h) {
     glViewport(0, 0, (GLsizei)w, (GLsizei)h);
     glMatrixMode(GL_PROJECTION);
@@ -52,4 +50,14 @@ void reshap_callback(int w, int h) {
 void timer_callback(int) {
     glutPostRedisplay();
     glutTimerFunc(1000 / (FPS_LIM * g_Snake.Get_Speed()), timer_callback, 0);
+}
+
+// Special keys input function
+void Special_callback(int key, int, int) {
+    g_Game_info.Set_Special_key(key);
+}
+
+// Normal keys input function
+void keyboard_callback(unsigned char key, int, int) {
+    g_Game_info.Set_Input_key(key);
 }
