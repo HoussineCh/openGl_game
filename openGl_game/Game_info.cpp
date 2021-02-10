@@ -3,8 +3,8 @@
     Author:	H.CHERGUI
     First version: 3.0
     First version date: 05/02/2021
-    current version: 3.4
-    current version date: 09/02/2021
+    current version: 3.6
+    current version date: 10/02/2021
 */
 
 
@@ -28,7 +28,7 @@ void Game_info::Init_Game_info() {
     Special_key = 0;
 }
 
-// Initialize the game's score and hi-score
+// Determine the game's score and hi-score
 void Game_info::Determine_Score() {
     if (Score < Hi_Score) {
         Score += 10;
@@ -39,6 +39,7 @@ void Game_info::Determine_Score() {
     }
 }
 
+// Get the current score
 long long Game_info::Get_Score() {
     return Score;
 }
@@ -48,21 +49,21 @@ bool Game_info::Get_New_record() {
     return New_record;
 }
 
-// Access the games's state and the internal code
+// Access the games's state and the internal cmd
 void Game_info::Set_state(e_State p_state) {
     State = p_state;
 }
 
-void Game_info::Set_code(e_Cmd p_code) {
-    Code = p_code;
+void Game_info::Set_cmd(e_Cmd p_cmd) {
+    Cmd = p_cmd;
 }
 
 Game_info::e_State Game_info::Get_state() {
     return State;
 }
 
-Game_info::e_Cmd Game_info::Get_code() {
-    return Code;
+Game_info::e_Cmd Game_info::Get_cmd() {
+    return Cmd;
 }
 
 // Acccess the input keys 

@@ -150,10 +150,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Draw.cpp" />
+    <ClCompile Include="Draw_Food.cpp" />
+    <ClCompile Include="Draw_Grid.cpp" />
     <ClCompile Include="Draw_messages.cpp" />
+    <ClCompile Include="Draw_Snake.cpp" />
     <ClCompile Include="Food.cpp" />
     <ClCompile Include="Game_info.cpp" />
-    <ClCompile Include="Global_Init.cpp" />
     <ClCompile Include="main_gl.cpp" />
     <ClCompile Include="open_gl.cpp" />
     <ClCompile Include="Init.cpp" />
@@ -161,6 +163,9 @@
     <ClCompile Include="State_Engine.cpp" />
     <ClCompile Include="Step.cpp" />
     <ClCompile Include="Update.cpp" />
+    <ClCompile Include="Update_Cmd.cpp" />
+    <ClCompile Include="Update_Food.cpp" />
+    <ClCompile Include="Update_Snake.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Draw.h" />
@@ -170,7 +175,6 @@
     <ClInclude Include="Global_Variables.h" />
     <ClInclude Include="Init.h" />
     <ClInclude Include="Snake.h" />
-    <ClInclude Include="Global_Init.h" />
     <ClInclude Include="open_gl.h" />
     <ClInclude Include="State_Engine.h" />
     <ClInclude Include="Step.h" />

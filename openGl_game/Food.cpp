@@ -3,8 +3,8 @@
     Author:	H.CHERGUI
     First version: 3.0
     First version date: 05/02/2021
-    current version: 3.4
-    current version date: 09/02/2021
+    current version: 3.6
+    current version date: 10/02/2021
 */
 
 
@@ -15,7 +15,7 @@
 #include "Food.h"
 
 
-// Generate fuit at random position
+// Generate the fuit at a random position
 void Food::Generate_cordinates() {
     srand(unsigned int(time(NULL)));
     Coordinates.first = rand() % (GC_COL - 6) + 3;

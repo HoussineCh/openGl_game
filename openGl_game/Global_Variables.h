@@ -5,11 +5,8 @@
 
 // User includes
 #include "Global_Constants.h"
-#include "Game_info.h"
-#include "Snake.h"
-#include "Food.h"
+#include "Types.h"
 
 
-extern Game_info g_Game_info;
-extern Snake g_Snake;
-extern Food g_Food;
+// Global variable declaration
+extern s_Data_Cluster g_Data;

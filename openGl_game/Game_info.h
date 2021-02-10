@@ -33,7 +33,7 @@ private:
 	long long Score;
 	long long Hi_Score;
 	e_State State;
-	e_Cmd Code;
+	e_Cmd Cmd;
 	bool New_record;
 	unsigned char Input_key;
 	long long Special_key;
@@ -50,11 +50,11 @@ public:
 	long long Get_Score();
 	bool Get_New_record();
 
-	// Access the games's state and the internal code
+	// Access the games's state and the internal cmd
 	void Set_state(e_State);
-	void Set_code(e_Cmd);
+	void Set_cmd(e_Cmd);
 	e_State Get_state();
-	e_Cmd Get_code();
+	e_Cmd Get_cmd();
 
 	// Acccess the input keys
 	void Set_Special_key(long long);

@@ -20,4 +20,3 @@ public:
 	// Return the corordinates of the fruit
 	std::pair<long long, long long> Get_Coordinates();
 };
-

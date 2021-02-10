@@ -3,8 +3,8 @@
 	Author: H.CHERGUI
 	First version: 2.0
 	First version date: 03/02/2021
-	Current version: 3.4
-	Current version date: 09/02/2021
+	Current version: 3.6
+	Current version date: 10/02/2021
 */
 
 
@@ -45,7 +45,7 @@ s_Data_Cluster State_Engine(s_Data_Cluster p_Data) {
 	else if (p_Data.game_info.Get_state() ==Game_info::e_State::RUNNING) {
 
 		// Checking if the game is over
-		if (p_Data.game_info.Get_code() == Game_info::e_Cmd::WALL_HIT_CMD || p_Data.game_info.Get_code() == Game_info::e_Cmd::COLLISION_CMD) {
+		if (p_Data.game_info.Get_cmd() == Game_info::e_Cmd::WALL_HIT_CMD || p_Data.game_info.Get_cmd() == Game_info::e_Cmd::COLLISION_CMD) {
 			// Put an end to the game
 			l_Data.game_info.Set_state(Game_info::e_State::GAME_OVER);
 		}
@@ -80,7 +80,7 @@ s_Data_Cluster State_Engine(s_Data_Cluster p_Data) {
 		// Restart the game
 		if (p_Data.game_info.Get_Input_key() == (unsigned short)Game_info::e_Cmd::RESTART_CMD) {
 			l_Data.game_info.Set_state(Game_info::e_State::START_SCREEN);
-			l_Data.game_info.Set_code(Game_info::e_Cmd::NO_CMD);
+			l_Data.game_info.Set_cmd(Game_info::e_Cmd::NO_CMD);
 		}
 
 		// Quit the game

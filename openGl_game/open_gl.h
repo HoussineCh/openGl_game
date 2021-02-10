@@ -8,15 +8,15 @@
 // User includes
 #include "Global_Variables.h"
 #include "Global_Constants.h"
-#include "Global_Init.h"
 #include "Step.h"
 
 // Macros
 #define FPS_LIM 5
 
-// Declarations
+// Declaration of OpenGl function
 void open_GL(int, char**);
 
+// Declaration of callback functions
 void timer_callback(int);
 void displayCallBack();
 void reshap_callback(int, int);
