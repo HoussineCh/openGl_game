@@ -50,33 +50,32 @@ void Draw(s_Data_Cluster p_Data) {
 		// Show the pop-up only once
 		if(g_Pop_Once){
 			
-			char t1[250] = "teh score is : ";	// make const
-			char t2[250] = "NEW HI-SCORE : ";
+			char t1[MSG_LEN];
+			char t2[MSG_LEN];
 
-			char s[15];
-			_itoa_s(p_Data.game_info.Get_Score(), s, 10);
+			for (int i = 0; i < sizeof(MSG_NO_NEW_HS) / sizeof(char); i++) {
+				t1[i] = MSG_NO_NEW_HS[i];
+				t2[i] = MSG_NEW_HS[i];
+			}
 
+			char s[MAX_SCORE_LEN];
+			_ltoa_s(p_Data.game_info.Get_Score(), s, 10);
+			
 			if (p_Data.game_info.Get_New_record()) {
 				strcat_s(t2, s);
 				strcat_s(t2, " !");
-				for (int i = 0; i < 250; i++)t1[i] = t2[i];
+				for (int i = 0; i < MSG_LEN; i++)t1[i] = t2[i];
 			}
 			else {
 				strcat_s(t1, s);
 			}
 			if (p_Data.game_info.Get_code() == Game_info::e_Cmd::COLLISION_CMD) {
-				strcat_s(t1, "\n\n\nYou just hit yourself!!! Dont do that again!!");
-				strcat_s(t1, "\n\nSnaeke!...                           SNAAAEKE!\n\n                    (continue y/n?)");
+				strcat_s(t1, MSG_WALL_HIT);
 			}
 			else if (p_Data.game_info.Get_code() == Game_info::e_Cmd::WALL_HIT_CMD) {
-				strcat_s(t1, "\n\n\nDon't run away! stay inside the map!!");
-				strcat_s(t1, "\n\nSnaeke!...                           SNAAAEKE!\n\n                    (continue y/n?)");
+				strcat_s(t1, MSG_COLLISION);
 			}
-			else {
-				strcat_s(t1, "\n\n\n>>[ERROR_409]::<p_Game_info.code>'s value is [UNKNOWN] !!");
-				std::cout << "p_Game_info.code: " << (long long)p_Data.game_info.Get_code() << std::endl;
-			}
-			MessageBox(NULL, LPCSTR(t1), LPCSTR("Game Over!"), 0);
+			MessageBox(NULL, LPCSTR(t1), LPCSTR(), 0);
 		}
 		g_Pop_Once = false;
 	}
