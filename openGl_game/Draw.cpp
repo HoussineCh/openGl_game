@@ -3,8 +3,8 @@
 	Author:	H.CHERGUI
 	First version: 2.0
 	First version date: 03/02/2021
-	Current version: 3.4
-	Current version date: 09/02/2021
+	Current version: 3.5
+	Current version date: 10/02/2021
 */
 
 
@@ -50,30 +50,30 @@ void Draw(s_Data_Cluster p_Data) {
 		// Show the pop-up only once
 		if(g_Pop_Once){
 			
-			char t1[MSG_LEN];
-			char t2[MSG_LEN];
+			char t1[GC_MSG_LEN];
+			char t2[GC_MSG_LEN];
 
-			for (int i = 0; i < sizeof(MSG_NO_NEW_HS) / sizeof(char); i++) {
-				t1[i] = MSG_NO_NEW_HS[i];
-				t2[i] = MSG_NEW_HS[i];
+			for (int i = 0; i < sizeof(GC_NO_NEW_HS_MSG) / sizeof(char); i++) {
+				t1[i] = GC_NO_NEW_HS_MSG[i];
+				t2[i] = GC_NEW_HS_MSG[i];
 			}
 
-			char s[MAX_SCORE_LEN];
+			char s[GC_MAX_SCORE_LEN];
 			_ltoa_s(p_Data.game_info.Get_Score(), s, 10);
 			
 			if (p_Data.game_info.Get_New_record()) {
 				strcat_s(t2, s);
 				strcat_s(t2, " !");
-				for (int i = 0; i < MSG_LEN; i++)t1[i] = t2[i];
+				for (int i = 0; i < GC_MSG_LEN; i++)t1[i] = t2[i];
 			}
 			else {
 				strcat_s(t1, s);
 			}
 			if (p_Data.game_info.Get_code() == Game_info::e_Cmd::COLLISION_CMD) {
-				strcat_s(t1, MSG_WALL_HIT);
+				strcat_s(t1, GC_WALL_HIT_MSG);
 			}
 			else if (p_Data.game_info.Get_code() == Game_info::e_Cmd::WALL_HIT_CMD) {
-				strcat_s(t1, MSG_COLLISION);
+				strcat_s(t1, GC_COLLISION_MSG);
 			}
 			MessageBox(NULL, LPCSTR(t1), LPCSTR(), 0);
 		}
