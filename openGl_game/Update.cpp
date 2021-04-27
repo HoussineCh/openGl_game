@@ -27,13 +27,13 @@ s_Data_Cluster Update(s_Data_Cluster p_data) {
 	if (l_Data.game_info.Get_state() == Game_info::e_State::RUNNING) {
 
 		// Check if the snake ate the fruit
-		l_Data = Update_food(l_Data);
+		l_Data = Update_Food(l_Data);
 
 		// Updating the snake
-		l_Data = Update_snake(l_Data);
+		l_Data = Update_Snake(l_Data);
 
 		// Check if a game over occured
-		l_Data.game_info.Set_cmd(Update_cmd(l_Data.snake));
+		l_Data.game_info.Set_cmd(Update_Cmd(l_Data.snake));
 	}
 
 	// Clearing the input values
