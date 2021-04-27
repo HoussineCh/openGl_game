@@ -1,10 +1,10 @@
 #pragma
 
 // System files includes
-#include<GL/glut.h> 
-#include<GL/gl.h> 
+/*NONE*/
 
 // User defined files includes
+#include "freeglut.h"
 #include "Types.h"
 #include "Global_Variables.h"
 

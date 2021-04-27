@@ -2,8 +2,6 @@
 
 // System files includes
 #include<iostream>
-//#include<GL/glut.h> 
-//#include<GL/gl.h> 
 
 // User defined files includes
 #include "Types.h"
