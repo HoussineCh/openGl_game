@@ -38,12 +38,11 @@ const long long GC_S_OS_Y2 = GC_ROW / 2 - 6;
 
 // Message box constants
 
-const char GC_NO_NEW_HS_MSG[16] = "teh score is : ";
+const char GC_NO_NEW_HS_MSG[16]  = "Your score is: ";
 const char GC_NEW_HS_MSG[19]	 = "NEW HI-SCORE : ";
-const char GC_WALL_HIT_MSG[134]	 = "\n\n\nYou just hit yourself!!! Dont do that again!!\n\nSnaeke!...                           SNAAAEKE!\n\n                    (continue y/n?)";
-const char GC_COLLISION_MSG[126]	 = "\n\n\nDon't run away! stay inside the map!!\n\nSnaeke!...                           SNAAAEKE!\n\n                    (continue y/n?)";
+const char GC_WALL_HIT_MSG[134]	 = "\n\n\nYou just hit yourself!!! Dont do that again!!\n\n";
+const char GC_COLLISION_MSG[126] = "\n\n\nDon't hit the wall! stay inside the map!!\n\n";
 const char GC_GAME_OVER_MSG[11]	 = "Game Over!";
-//extern const char* GC_WIN_NAME;
 const char GC_WIN_NAME[22] = "Houssine's snake game";
 
 // Strings' max length

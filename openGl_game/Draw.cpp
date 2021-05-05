@@ -3,8 +3,8 @@
 	Author:	H.CHERGUI
 	First version: 2.0
 	First version date: 03/02/2021
-	Current version: 3.6
-	Current version date: 10/02/2021
+	Current version: 3.7.1
+	Current version date: 05/05/2021
 */
 
 
@@ -19,7 +19,7 @@
 void Draw(s_Data_Cluster p_Data) {
 	
 	// Local variable
-	static bool g_Pop_Once;
+	static bool l_Pop_Once;
 
 	// Clear the previous screen content
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -33,7 +33,7 @@ void Draw(s_Data_Cluster p_Data) {
 	else if (p_Data.game_info.Get_state() == Game_info::e_State::RUNNING) {
 		Draw_Food(p_Data.food);
 		Draw_Snake(p_Data.snake);
-		g_Pop_Once = true;
+		l_Pop_Once = true;
 	}
 
 	// Pause screen
@@ -48,7 +48,7 @@ void Draw(s_Data_Cluster p_Data) {
 		Draw_Game_Over();
 		
 		// Show the pop-up only once
-		if(g_Pop_Once){
+		if(l_Pop_Once){
 			
 			char t1[GC_MSG_LEN];
 			char t2[GC_MSG_LEN];
@@ -77,7 +77,7 @@ void Draw(s_Data_Cluster p_Data) {
 			}
 			MessageBox(NULL, LPCSTR(t1), LPCSTR(), 0);
 		}
-		g_Pop_Once = false;
+		l_Pop_Once = false;
 	}
 	Draw_Grid();
 	
